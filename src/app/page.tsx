@@ -1,4 +1,5 @@
 import { ElementsButton } from "@/components/ElementsButton";
+import { FaqSection } from "@/components/faq-section";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
@@ -44,6 +45,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <FaqSection/>
     </div>
   );
 }
