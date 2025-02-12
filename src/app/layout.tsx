@@ -1,48 +1,60 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel_Decorative, Playfair_Display } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from 'next';
+import {
+    Geist,
+    Geist_Mono,
+    Cinzel_Decorative,
+    Playfair_Display,
+} from 'next/font/google';
+import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: '--font-geist-sans',
+    subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: '--font-geist-mono',
+    subsets: ['latin'],
 });
 
 const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair-display",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+    variable: '--font-playfair-display',
+    subsets: ['latin'],
+    style: ['italic', 'normal'],
+    weight: ['400', '700', '900'],
 });
 
 const cinzelDecorative = Cinzel_Decorative({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+    subsets: ['latin'],
+    weight: ['400', '700', '900'],
 });
 
 export const metadata: Metadata = {
-  title: "TEDxTelkom University",
-  description: "TEDxTelkom University website made with <3",
+    title: 'TEDxTelkom University',
+    description: 'TEDxTelkom University website made with <3',
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${playfairDisplay.variable} ${geistMono.variable} ${cinzelDecorative.className} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang='en' suppressHydrationWarning>
+            <body
+                suppressHydrationWarning
+                className={`${geistSans.variable} ${playfairDisplay.variable} ${geistMono.variable} ${cinzelDecorative.className} antialiased`}
+            >
+                <ThemeProvider
+                    attribute='class'
+                    defaultTheme='dark'
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
+            </body>
+        </html>
+    );
 }
