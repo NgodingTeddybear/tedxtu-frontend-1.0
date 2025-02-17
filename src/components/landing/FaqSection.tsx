@@ -30,7 +30,7 @@ const faqData = [
 
 export function FaqSection() {
     return (
-        <section className='min-h-screen flex justify-center px-4 md:px-6 lg:px-8'>
+        <section className='min-h-screen flex justify-center items-center px-4 md:px-6 lg:px-8'>
             <div className='container'>
                 <h2 className='text-center mb-12'>
                     <span className='text-white text-4xl md:text-5xl font-bold block'>
