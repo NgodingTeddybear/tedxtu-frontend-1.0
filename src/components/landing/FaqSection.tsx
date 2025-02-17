@@ -30,7 +30,7 @@ const faqData = [
 
 export function FaqSection() {
     return (
-        <section className='h-screen flex justify-center px-4 md:px-6 lg:px-8'>
+        <section className='min-h-screen flex justify-center px-4 md:px-6 lg:px-8'>
             <div className='container'>
                 <h2 className='text-center mb-12'>
                     <span className='text-white text-4xl md:text-5xl font-bold block'>
@@ -71,7 +71,10 @@ export function FaqSection() {
                                     }
                                 `}
                             >
-                                <AccordionTrigger className='px-6 py-4 hover:no-underline'>
+                                <AccordionTrigger
+                                    className={`px-6 py-4 hover:no-underline`}
+                                    isDark={index % 2 !== 0}
+                                >
                                     <span
                                         className={`text-sm md:text-2xl font-black block ${
                                             index % 2 === 0
