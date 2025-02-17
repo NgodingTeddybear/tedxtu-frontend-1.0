@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export function HeroSection() {
     return (
-        <main className='min-h-screen flex flex-col'>
+        <main id='hero' className='min-h-screen flex flex-col'>
             <nav className='w-full'>
                 <Navbar />
             </nav>

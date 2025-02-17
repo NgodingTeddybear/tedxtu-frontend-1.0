@@ -1,6 +1,9 @@
 export function AboutSection() {
     return (
-        <section className='min-h-screen flex justify-center items-center px-4 md:px-6 lg:px-8'>
+        <section
+            id='about'
+            className='min-h-screen flex justify-center items-center px-4 md:px-6 lg:px-8'
+        >
             <div className='container items-center justify-center'>
                 <div className='flex flex-col py-16 md:py-24 items-center md:items-start justify-between'>
                     <h2 className='scroll-m-20 font-bold text-4xl md:text-6xl lg:text-8xl text-white'>
