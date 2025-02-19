@@ -4,6 +4,7 @@ import {
     Geist_Mono,
     Cinzel_Decorative,
     Playfair_Display,
+    Raleway,
 } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -11,6 +12,13 @@ import { ThemeProvider } from '@/components/theme-provider';
 const geistSans = Geist({
     variable: '--font-geist-sans',
     subsets: ['latin'],
+});
+
+const raleway = Raleway({
+    variable: '--font-raleway',
+    subsets: ['latin'],
+    style: ['italic', 'normal'],
+    weight: ['400', '700', '900'],
 });
 
 const geistMono = Geist_Mono({
@@ -44,7 +52,7 @@ export default function RootLayout({
         <html lang='en' suppressHydrationWarning>
             <body
                 suppressHydrationWarning
-                className={`${geistSans.variable} ${playfairDisplay.variable} ${geistMono.variable} ${cinzelDecorative.className} antialiased`}
+                className={`${geistSans.variable} ${raleway.variable} ${playfairDisplay.variable} ${geistMono.variable} ${cinzelDecorative.className} antialiased`}
             >
                 <ThemeProvider
                     attribute='class'
