@@ -66,14 +66,14 @@ export function AboutSection() {
     return (
         <section
             id='about'
-            className='min-h-screen flex flex-col justify-center items-center px-4 md:px-6 lg:px-8 mb-24'
+            className='min-h-screen flex flex-col justify-center items-center px-4 md:px-6 lg:px-8 mb-24 mt-16 md:mt-0'
         >
             <div className='container flex flex-col items-center'>
                 <div className='relative'>
                     <h2 className='inline-flex items-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl relative'>
                         About Us
                     </h2>
-                    <p className='absolute font-[family-name:var(--font-raleway)] bg-white px-3 text-red-800 font-bold text-2xl -rotate-3 -right-14'>
+                    <p className='absolute font-[family-name:var(--font-raleway)] bg-white px-3 text-red-800 font-bold text-lg md:text-xl lg:text-2xl -rotate-3 -right-14'>
                         Peopleweared
                     </p>
                 </div>
