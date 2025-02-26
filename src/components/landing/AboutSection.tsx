@@ -2,10 +2,10 @@
 
 import {
     Accordion,
+    AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '@radix-ui/react-accordion';
-import { AccordionContent } from '../ui/accordion';
+} from '@/components/ui/accordion';
 import { MinusCircle, PlusCircle } from 'lucide-react';
 import { useState } from 'react';
 
@@ -87,12 +87,12 @@ export function AboutSection() {
                         <AccordionItem
                             value='Licensee'
                             className={`
-                              mb-4 
-                              rounded-lg 
-                              px-3
-                              py-1
+                              px-8
+                              py-3
                               lg:px-12
                               lg:py-7
+                              mb-4 
+                              rounded-lg 
                               overflow-hidden 
                               transition-all 
                               duration-200 
@@ -101,28 +101,17 @@ export function AboutSection() {
                               border-transparent
                               [border-image:linear-gradient(to_right,#951900,#CE2406)_1]
                               data-[state=open]:[border-image:linear-gradient(to_right,#2E2E2E,#8E8E8E)_1]
-                              
+                              shadow-[0_4px_13.1px_rgba(0,0,0,0.6)]
                               bg-cover
                               bg-left-bottom
                               bg-[url('/accordion/black-theme.png')]
                               data-[state=open]:bg-[url('/accordion/red-theme.png')]
                           `}
                         >
-                            <AccordionTrigger className='px-6 py-4 text-lg md:text-3xl lg:text-4xl font-bold flex justify-between items-center w-full'>
+                            <AccordionTrigger className='p-0 hover:no-underline text-lg md:text-3xl lg:text-4xl font-bold'>
                                 licensee{' '}
-                                {openItem === 'Licensee' ? (
-                                    <MinusCircle
-                                        size={38}
-                                        className='transition-all'
-                                    />
-                                ) : (
-                                    <PlusCircle
-                                        size={38}
-                                        className='transition-all'
-                                    />
-                                )}
                             </AccordionTrigger>
-                            <AccordionContent className='p-6'>
+                            <AccordionContent className='pt-6'>
                                 Licensee is responsible for obtaining and
                                 maintaining the TEDx licensee, leading event
                                 planning, managing the team, curating speakers,
@@ -139,8 +128,8 @@ export function AboutSection() {
                                         value={d.name}
                                         className={`
                               rounded-lg 
-                              px-3
-                              py-1
+                              px-8
+                              py-3
                               lg:px-12
                               lg:py-7
                               overflow-hidden 
@@ -158,19 +147,8 @@ export function AboutSection() {
                               data-[state=open]:bg-[url('/accordion/red-theme.png')]
                           `}
                                     >
-                                        <AccordionTrigger className='px-6 py-4 text-lg md:text-3xl lg:text-4xl font-bold flex justify-between items-center w-full'>
+                                        <AccordionTrigger className='hover:no-underline p-0 text-lg md:text-3xl lg:text-4xl font-bold'>
                                             {d.name}{' '}
-                                            {openItem === d.name ? (
-                                                <MinusCircle
-                                                    size={38}
-                                                    className='transition-all'
-                                                />
-                                            ) : (
-                                                <PlusCircle
-                                                    size={38}
-                                                    className='transition-all'
-                                                />
-                                            )}
                                         </AccordionTrigger>
                                         <AccordionContent className='py-6'>
                                             {d.description}
