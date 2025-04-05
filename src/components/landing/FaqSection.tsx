@@ -30,70 +30,64 @@ const faqData = [
 
 export function FaqSection() {
     return (
-        <section className='min-h-screen flex justify-center items-center px-4 md:px-6 lg:px-8'>
-            <div className='container'>
-                <h2 className='text-center mb-12'>
-                    <span className='text-white text-4xl md:text-5xl font-bold block'>
+        <section className="min-h-screen flex justify-center items-center px-4 md:px-6 lg:px-8">
+            <div className="container">
+                <h2 className="text-center mb-12">
+                    <span className="text-white text-4xl md:text-5xl font-bold block">
                         Frequently
                     </span>
-                    <span className='text-white text-4xl md:text-5xl font-bold block'>
-                        <span className='font-[family-name:var(--font-playfair-display)] italic font-normal'>
+                    <span className="text-white text-4xl md:text-5xl font-bold block">
+                        <span className="font-[family-name:var(--font-playfair-display)] italic font-normal">
                             Asked
                         </span>{' '}
                         Question
                     </span>
                 </h2>
-                <div className='w-full mx-auto'>
-                    <Accordion type='single' collapsible>
-                        {faqData.map((faq, index) => (
-                            <AccordionItem
-                            key={index}
-                            value={`item-${index}`}
-                            className="relative rounded-[40px] sm:rounded-[50px] md:rounded-[58px] lg:rounded-[70px] overflow-hidden mb-6"
-                          >
-                            <div
-                              className={`
-                                p-[4px] 
-                                rounded-[40px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[70px]
-                                ${index % 2 === 0
-                                  ? 'bg-gradient-to-r from-[#951900] to-[#CE2406]'
-                                  : 'bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E]'}
-                              `}
-                            >
-                              <div
-                                className={`
-                                  rounded-[40px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[70px]
-                                  bg-[url(${index % 2 === 0 ? "'/faq/gold.png'" : "'/faq/red.png'"})]
-                                  bg-cover bg-no-repeat
-                                  px-6 py-2 lg:px-16 lg:py-6
-                                  transition-all duration-200 hover:brightness-110
-                                  shadow-[0_4px_13.1px_rgba(0,0,0,0.6)]
-                                  ${index % 2 === 0 ? 'text-black' : 'text-white'}
-                                `}
-                              >
-                                <AccordionTrigger
-                                  className={`px-6 py-4 hover:no-underline`}
-                                  isDark={index % 2 !== 0}
+                <div className="w-full mx-auto">
+                    <Accordion type="single" collapsible>
+                        {faqData.map((faq, index) => {
+                            const isEven = index % 2 === 0;
+                            const gradient = isEven
+                                ? 'bg-gradient-to-r from-[#951900] to-[#CE2406]'
+                                : 'bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E]';
+                            const bgImage = isEven
+                                ? '/faq/gold.png'
+                                : '/faq/red.png';
+                            const textColor = isEven ? 'text-black' : 'text-white';
+
+                            return (
+                                <AccordionItem
+                                    key={index}
+                                    value={`item-${index}`}
+                                    className="relative rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] overflow-hidden mb-6"
                                 >
-                                  <span
-                                    className={`text-sm md:text-2xl font-black block ${
-                                      index % 2 === 0 ? 'text-black' : 'text-white'
-                                    }`}
-                                  >
-                                    {faq.question}
-                                  </span>
-                                </AccordionTrigger>
-                                <AccordionContent
-                                  className={`px-6 pb-4 ${
-                                    index % 2 === 0 ? 'text-black' : 'text-white'
-                                  }`}
-                                >
-                                  {faq.answer}
-                                </AccordionContent>
-                              </div>
-                            </div>
-                          </AccordionItem>
-                        ))}
+                                    <div
+                                        className={`p-[3px] rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] ${gradient}`}
+                                    >
+                                        <div
+                                            className={`rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] px-6 py-2 lg:px-16 lg:py-6 transition-all duration-200 hover:brightness-110 shadow-[0_4px_13.1px_rgba(0,0,0,0.6)] ${textColor}`}
+                                            style={{
+                                                backgroundImage: `url(${bgImage})`,
+                                                backgroundSize: 'cover',
+                                                backgroundRepeat: 'no-repeat',
+                                            }}
+                                        >
+                                            <AccordionTrigger
+                                                className="px-6 py-4 hover:no-underline"
+                                                isDark={!isEven}
+                                            >
+                                                <span className={`text-sm md:text-2xl font-black block ${textColor}`}>
+                                                    {faq.question}
+                                                </span>
+                                            </AccordionTrigger>
+                                            <AccordionContent className={`px-6 pb-4 ${textColor}`}>
+                                                {faq.answer}
+                                            </AccordionContent>
+                                        </div>
+                                    </div>
+                                </AccordionItem>
+                            );
+                        })}
                     </Accordion>
                 </div>
             </div>
