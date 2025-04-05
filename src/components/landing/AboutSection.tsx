@@ -6,8 +6,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import { MinusCircle, PlusCircle } from 'lucide-react';
-import { useState } from 'react';
+import { PlusCircle } from 'lucide-react';
 
 const departments = [
     {
@@ -61,8 +60,6 @@ const departments = [
 ];
 
 export function AboutSection() {
-    const [openItem, setOpenItem] = useState<string | null>(null);
-
     return (
         <section
             id='about'
@@ -78,12 +75,7 @@ export function AboutSection() {
                     </p>
                 </div>
                 <div className='flex space-y-5 w-full mt-14'>
-                    <Accordion
-                        type='single'
-                        collapsible
-                        className='w-full'
-                        onValueChange={(value) => setOpenItem(value)}
-                    >
+                    <Accordion type='single' collapsible className='w-full'>
                         <AccordionItem
                             value='Licensee'
                             className={`
@@ -108,7 +100,12 @@ export function AboutSection() {
                               data-[state=open]:bg-[url('/accordion/red-theme.png')]
                           `}
                         >
-                            <AccordionTrigger className='p-0 hover:no-underline text-lg md:text-3xl lg:text-4xl font-bold'>
+                            <AccordionTrigger
+                                icon={
+                                    <PlusCircle className='h-4 w-4 md:h-9 md:w-9 shrink-0' />
+                                }
+                                className='p-0 hover:no-underline text-lg md:text-3xl lg:text-4xl font-bold'
+                            >
                                 licensee{' '}
                             </AccordionTrigger>
                             <AccordionContent className='pt-6'>
@@ -120,7 +117,7 @@ export function AboutSection() {
                                 guidelines to deliver an impactful experience.
                             </AccordionContent>
                         </AccordionItem>
-                        <span className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                        <span className='grid grid-cols-1 items-start md:grid-cols-2 gap-4'>
                             {departments.map((d) => {
                                 return (
                                     <AccordionItem
@@ -147,7 +144,12 @@ export function AboutSection() {
                               data-[state=open]:bg-[url('/accordion/red-theme.png')]
                           `}
                                     >
-                                        <AccordionTrigger className='hover:no-underline p-0 text-lg md:text-3xl lg:text-4xl font-bold'>
+                                        <AccordionTrigger
+                                            icon={
+                                                <PlusCircle className='h-4 w-4 md:h-9 md:w-9 shrink-0' />
+                                            }
+                                            className='hover:no-underline p-0 text-lg md:text-3xl lg:text-4xl font-bold'
+                                        >
                                             {d.name}{' '}
                                         </AccordionTrigger>
                                         <AccordionContent className='py-6'>

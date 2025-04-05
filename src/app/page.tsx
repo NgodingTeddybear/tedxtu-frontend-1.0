@@ -1,5 +1,9 @@
-import { HeroSection, FaqSection, VisionSection } from '@/components/landing';
-import { AboutSection } from '@/components/landing/AboutSection';
+import {
+    HeroSection,
+    FaqSection,
+    VisionSection,
+    AboutSection,
+} from '@/components/landing';
 
 export default function Home() {
     return (

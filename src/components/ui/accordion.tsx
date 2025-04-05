@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 interface CustomTriggerProps
     extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> {
     isDark?: boolean;
+    icon?: React.ReactNode;
 }
 
 const Accordion = AccordionPrimitive.Root;
@@ -28,23 +29,27 @@ AccordionItem.displayName = 'AccordionItem';
 const AccordionTrigger = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Trigger>,
     CustomTriggerProps
->(({ className, children, isDark = false, ...props }, ref) => (
+>(({ className, children, isDark = false, icon, ...props }, ref) => (
     <AccordionPrimitive.Header className='flex'>
         <AccordionPrimitive.Trigger
             ref={ref}
             className={cn(
                 'flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline text-left [&[data-state=open]>svg]:rotate-180',
-                className,
+                className
             )}
             {...props}
         >
             {children}
-            <ArrowUpRight
-                className={cn(
-                    'h-4 w-4 md:h-12 md:w-12 shrink-0 transition-transform duration-200',
-                    isDark ? 'text-white' : 'text-black',
-                )}
-            />
+            {icon ? (
+                icon
+            ) : (
+                <ArrowUpRight
+                    className={cn(
+                        'h-4 w-4 md:h-12 md:w-12 shrink-0 transition-transform duration-200',
+                        isDark ? 'text-white' : 'text-black'
+                    )}
+                />
+            )}
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
 ));
