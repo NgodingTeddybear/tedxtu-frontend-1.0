@@ -47,54 +47,52 @@ export function FaqSection() {
                     <Accordion type='single' collapsible>
                         {faqData.map((faq, index) => (
                             <AccordionItem
-                                key={index}
-                                value={`item-${index}`}
-                                className={`
-                                    mb-4 
-                                    rounded-lg 
-                                    px-3
-                                    py-1
-                                    lg:px-16
-                                    lg:py-5
-                                    overflow-hidden 
-                                    transition-all 
-                                    duration-200 
-                                    hover:brightness-110
-                                    border-4 
-                                    border-transparent 
-                                    bg-clip-padding
-                                    shadow-[0_4px_13.1px_rgba(0,0,0,0.6)]
-                                    ${
-                                        index % 2 === 0
-                                            ? "bg-[url('/faq/gold.png')] bg-cover bg-no-repeat text-black [border-image:linear-gradient(to_right,#951900,#CE2406)_1]"
-                                            : "bg-[url('/faq/red.png')] bg-cover text-white [border-image:linear-gradient(to_right,#2E2E2E,#8E8E8E)_1]"
-                                    }
-                                `}
+                            key={index}
+                            value={`item-${index}`}
+                            className="relative rounded-[40px] sm:rounded-[50px] md:rounded-[58px] lg:rounded-[70px] overflow-hidden mb-6"
+                          >
+                            <div
+                              className={`
+                                p-[4px] 
+                                rounded-[40px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[70px]
+                                ${index % 2 === 0
+                                  ? 'bg-gradient-to-r from-[#951900] to-[#CE2406]'
+                                  : 'bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E]'}
+                              `}
                             >
+                              <div
+                                className={`
+                                  rounded-[40px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[70px]
+                                  bg-[url(${index % 2 === 0 ? "'/faq/gold.png'" : "'/faq/red.png'"})]
+                                  bg-cover bg-no-repeat
+                                  px-6 py-2 lg:px-16 lg:py-6
+                                  transition-all duration-200 hover:brightness-110
+                                  shadow-[0_4px_13.1px_rgba(0,0,0,0.6)]
+                                  ${index % 2 === 0 ? 'text-black' : 'text-white'}
+                                `}
+                              >
                                 <AccordionTrigger
-                                    className={`px-6 py-4 hover:no-underline`}
-                                    isDark={index % 2 !== 0}
+                                  className={`px-6 py-4 hover:no-underline`}
+                                  isDark={index % 2 !== 0}
                                 >
-                                    <span
-                                        className={`text-sm md:text-2xl font-black block ${
-                                            index % 2 === 0
-                                                ? 'text-black'
-                                                : 'text-white'
-                                        }`}
-                                    >
-                                        {faq.question}
-                                    </span>
+                                  <span
+                                    className={`text-sm md:text-2xl font-black block ${
+                                      index % 2 === 0 ? 'text-black' : 'text-white'
+                                    }`}
+                                  >
+                                    {faq.question}
+                                  </span>
                                 </AccordionTrigger>
                                 <AccordionContent
-                                    className={`px-6 pb-4 ${
-                                        index % 2 === 0
-                                            ? 'text-black'
-                                            : 'text-white'
-                                    }`}
+                                  className={`px-6 pb-4 ${
+                                    index % 2 === 0 ? 'text-black' : 'text-white'
+                                  }`}
                                 >
-                                    {faq.answer}
+                                  {faq.answer}
                                 </AccordionContent>
-                            </AccordionItem>
+                              </div>
+                            </div>
+                          </AccordionItem>
                         ))}
                     </Accordion>
                 </div>
