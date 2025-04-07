@@ -21,7 +21,7 @@ const merch = [
 
 export default function Merch() {
     return (
-        <main>
+        <main className='bg-[url(/merch-background.png)] bg-cover bg-no-repeat h-screen'>
             <nav className='w-full'>
                 <Navbar />
             </nav>
@@ -31,10 +31,13 @@ export default function Merch() {
                     Our MERCHANDISE
                 </h2>
 
-                <div className='flex justify-center mt-[70px]'>
+                <div className='flex justify-center mt-[70px] gap-[52px]'>
                     {merch.map((merch, index) => {
                         return (
-                            <Card className='w-[251px] border-none' key={index}>
+                            <Card
+                                className='w-[251px] border-none bg-transparent'
+                                key={index}
+                            >
                                 <CardHeader>
                                     <Image
                                         src={'/dummy-merch.jpg'}
@@ -49,13 +52,15 @@ export default function Merch() {
                                         <p className='font-bold text-2xl'>
                                             {merch.name}
                                         </p>
-                                        <p className='font-bold text-[14px]'>
+                                        <p className='font-bold text-[14px] text-[#D3D1D1]'>
                                             {merch.price}
                                         </p>
                                     </div>
-                                    <Button className='text-[#CE1818] font-black text-sm rounded-[32px] border-2 py-[14px] border-gray-600'>
-                                        Get this merch
-                                    </Button>
+                                    <div className='absolute bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E] rounded-[32px] p-1'>
+                                        <Button className='bg-[url(/buttons/white-theme.png)] bg-center bg-no-repeat w-[205px] h-[47px] text-[#CE1818] font-black text-sm rounded-[32px] py-[14px] shadow-lg'>
+                                            Get this merch
+                                        </Button>
+                                    </div>
                                 </CardContent>
                             </Card>
                         );
