@@ -21,7 +21,7 @@ const merch = [
 
 export default function Merch() {
     return (
-        <main className='bg-[url(/merch-background.png)] bg-cover bg-no-repeat h-screen'>
+        <main className='bg-[url(/merch-background.png)] bg-cover bg-no-repeat min-h-screen py-10'>
             <nav className='w-full'>
                 <Navbar />
             </nav>
@@ -31,14 +31,14 @@ export default function Merch() {
                     Our MERCHANDISE
                 </h2>
 
-                <div className='flex justify-center mt-[70px] gap-[52px]'>
+                <div className='flex flex-col flex-wrap md:flex-row items-center justify-center mt-[70px] gap-[52px] md:px-14'>
                     {merch.map((merch, index) => {
                         return (
                             <Card
                                 className='w-[251px] border-none bg-transparent'
                                 key={index}
                             >
-                                <CardHeader>
+                                <CardHeader className='p-0'>
                                     <Image
                                         src={'/dummy-merch.jpg'}
                                         alt='merch'
@@ -47,7 +47,7 @@ export default function Merch() {
                                         className='object-cover rounded-[24px]'
                                     />
                                 </CardHeader>
-                                <CardContent>
+                                <CardContent className='p-0 mt-[30px]'>
                                     <div className='mb-5'>
                                         <p className='font-bold text-2xl'>
                                             {merch.name}
@@ -56,8 +56,8 @@ export default function Merch() {
                                             {merch.price}
                                         </p>
                                     </div>
-                                    <div className='absolute bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E] rounded-[32px] p-1'>
-                                        <Button className='bg-[url(/buttons/white-theme.png)] bg-center bg-no-repeat w-[205px] h-[47px] text-[#CE1818] font-black text-sm rounded-[32px] py-[14px] shadow-lg'>
+                                    <div className='inline-flex justify-center bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E] rounded-[32px] p-1 shadow-lg'>
+                                        <Button className='bg-[url(/buttons/white-theme.png)] w-[205px] h-[47px] bg-center bg-no-repeat text-[#CE1818] font-black text-sm rounded-[32px] py-[14px]'>
                                             Get this merch
                                         </Button>
                                     </div>
