@@ -1,4 +1,4 @@
-import { ElementsButton } from '@/components/ElementsButton';
+import Countdown from '@/components/countdown';
 import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -21,7 +21,8 @@ const merch = [
 
 export default function Merch() {
     return (
-        <main className='bg-[url(/merch-background.png)] bg-cover bg-no-repeat min-h-screen py-10'>
+        <main className='bg-[url(/merch-background.png)] bg-cover bg-no-repeat min-h-screen pb-10'>
+            <Countdown />
             <nav className='w-full'>
                 <Navbar />
             </nav>
