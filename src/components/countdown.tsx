@@ -3,7 +3,7 @@
 import useCountdown from '@/hooks/useCountdown';
 
 export default function Countdown() {
-    const timeLeft = useCountdown(new Date('2025-04-30T09:00:00+07:00'));
+    const timeLeft = useCountdown(new Date('2025-05-04T09:00:00+07:00'));
 
     return (
         <div className='bg-[url(/countdown-background.png)] bg-no-repeat bg-cover flex items-center justify-center h-[77px]'>
