@@ -1,4 +1,5 @@
-import { HeroSection, FaqSection, VisionSection } from '@/components/landing';
+import { HeroSection, FaqSection, VisionSection, SpeakersSection} from '@/components/landing';
+
 
 export default function Home() {
     return (
@@ -17,6 +18,9 @@ export default function Home() {
             <HeroSection />
             <VisionSection />
             <FaqSection />
+            <SpeakersSection />
+            
+            
         </div>
     );
 }
