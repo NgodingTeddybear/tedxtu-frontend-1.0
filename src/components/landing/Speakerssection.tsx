@@ -4,39 +4,33 @@ import { Card, CardContent } from "../../components/ui/card";
 const speakers = [
   {
     id: 1,
-    name: "Nama Speaker",
-    role: "Student speaker/jabatan",
-    imageUrl: "/speakers/man 2.png",
+    name: "Dr. Gamma Kosala, S.Si.",
+    role: "Researcher & Educator in AI Informatics Lecturer",
+    imageUrl: "/speakers/s1.png",
   },
   {
     id: 2,
-    name: "Nama Speaker",
-    role: "Student speaker/jabatan",
-    imageUrl: "/speakers/woman 3.png",
+    name: "Kori DyahWiratikta, M.Psi., Psikolog",
+    role: "Clinical Psychologist & Mental Health Advocate",
+    imageUrl: "/speakers/s2.png",
   },
   {
     id: 3,
-    name: "Nama Speaker",
-    role: "Student speaker/jabatan",
-    imageUrl: "/speakers/woman 3.png",
+    name: "Dionisius Mehaga Bangun Djayasaputra",
+    role: "Illustrator & Visual Storyteller",
+    imageUrl: "/speakers/s3.png",
   },
   {
     id: 4,
-    name: "Nama Speaker",
-    role: "Student speaker/jabatan",
-    imageUrl: "/speakers/woman 1.png",
+    name: "Ni Putu Tanya Hapsari Wulandari",
+    role: "Young Entrepreneur & Outstanding Student Telkom University Class of 2024",
+    imageUrl: "/speakers/s4.png",
   },
   {
     id: 5,
-    name: "Nama Speaker",
-    role: "Student speaker/jabatan",
-    imageUrl: "/speakers/man 3.png",
-  },
-  {
-    id: 6,
-    name: "Nama Speaker",
-    role: "Student speaker/jabatan",
-    imageUrl: "/speakers/man 2.png",
+    name: "Muhamad Arvin Zulfikar",
+    role: "Chairman of Genbi Telkom University Outstanding Student Information Systems 2023.",
+    imageUrl: "/speakers/s5.png",
   },
 ];
 
@@ -116,7 +110,7 @@ export const SpeakersSection = () => {
   <img
     src={speaker.imageUrl}
     alt={speaker.name}
-    className="relative z-20 h-3/4 object-contain"
+    className="relative z-20 h-95% object-contain"
   />
 
 </CardContent>
