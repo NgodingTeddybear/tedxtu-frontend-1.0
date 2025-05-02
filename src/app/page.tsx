@@ -1,4 +1,4 @@
-import { HeroSection, FaqSection, VisionSection, SpeakersSection} from '@/components/landing';
+import { HeroSection, FaqSection, VisionSection, SpeakersSection, MapSection} from '@/components/landing';
 
 
 export default function Home() {
@@ -18,7 +18,9 @@ export default function Home() {
             <HeroSection />
             <VisionSection />
             <FaqSection />
+            <MapSection/>
             <SpeakersSection />
+            
             
             
         </div>
