@@ -54,7 +54,7 @@ const merch = [
 
 export default function Merch() {
     return (
-        <main className='bg-[url(/merch-background.png)] bg-cover bg-no-repeat min-h-screen pb-10'>
+        <main className='bg-[url(/merch-background.png)] bg-cover min-h-screen pb-10'>
             <Countdown />
             <nav className='w-full'>
                 <Navbar />
@@ -65,14 +65,14 @@ export default function Merch() {
                     Our MERCHANDISE
                 </h2>
 
-                <div className='flex flex-col flex-wrap md:flex-row items-end justify-center mt-[70px] gap-[52px] md:px-14'>
+                <div className='flex flex-col flex-wrap md:flex-row items-center md:items-stretch justify-center mt-[70px] gap-[52px] md:px-14'>
                     {merch.map((merch, index) => {
                         return (
                             <Card
-                                className='w-[251px] border-none bg-transparent'
+                                className='w-[251px] border-none bg-transparent flex flex-col justify-between'
                                 key={index}
                             >
-                                <CardHeader className='p-0 rounded-2xl'>
+                                <CardHeader className='p-0 rounded-2xl bg-white'>
                                     <Image
                                         src={merch.img}
                                         alt={merch.name}
@@ -92,7 +92,7 @@ export default function Merch() {
                                     </div>
                                     <div className='inline-flex justify-center bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E] rounded-[32px] p-1 shadow-lg'>
                                         <Button className='bg-[url(/buttons/white-theme.png)] w-[205px] h-[47px] bg-center bg-no-repeat text-[#CE1818] font-black text-sm rounded-[32px] py-[14px]'>
-                                            Get this merch
+                                            <a href="https://www.instagram.com/p/DITpgTwzoO-/?img_index=1" target='_blank'>Get this merch</a>
                                         </Button>
                                     </div>
                                 </CardContent>
