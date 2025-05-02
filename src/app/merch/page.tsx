@@ -6,16 +6,49 @@ import Image from 'next/image';
 
 const merch = [
     {
-        name: 'TEDx T-Shirt',
-        price: 'Rp50.0000',
+        name: 'T-Shirt',
+        price: 'Rp75.000',
+        img: '/merch/tshirt.png'
     },
     {
-        name: 'TEDx T-Shirt',
-        price: 'Rp50.0000',
+        name: 'Baseball Cap',
+        price: 'Rp62.000',
+        img: '/merch/baseballCap.png'
     },
     {
-        name: 'TEDx T-Shirt',
-        price: 'Rp50.0000',
+        name: 'Acrylic Keychain',
+        price: 'Rp15.000',
+        img: '/merch/keychain.png'
+    },
+    {
+        name: 'Sticker Sheet',
+        price: 'Rp9.000',
+        img: '/merch/stickerPack.png'
+    },
+    {
+        name: 'Hand Fan',
+        price: 'Rp8.000',
+        img: '/merch/handfan.png'
+    },
+    {
+        name: 'Fabric Kit',
+        price: 'Rp22.000',
+        img: '/merch/fabricKit.png'
+    },
+    {
+        name: 'Bobbin\'s Kit',
+        price: 'Rp78.000',
+        img: '/merch/bobbinsKit.png'
+    },
+    {
+        name: 'Stitches Kit',
+        price: 'Rp82.000',
+        img: '/merch/stitchesKit.png'
+    },
+    {
+        name: 'Tapestry Kit',
+        price: 'Rp144.000',
+        img: '/merch/tapestryKit.png'
     },
 ];
 
@@ -32,20 +65,20 @@ export default function Merch() {
                     Our MERCHANDISE
                 </h2>
 
-                <div className='flex flex-col flex-wrap md:flex-row items-center justify-center mt-[70px] gap-[52px] md:px-14'>
+                <div className='flex flex-col flex-wrap md:flex-row items-end justify-center mt-[70px] gap-[52px] md:px-14'>
                     {merch.map((merch, index) => {
                         return (
                             <Card
                                 className='w-[251px] border-none bg-transparent'
                                 key={index}
                             >
-                                <CardHeader className='p-0'>
+                                <CardHeader className='p-0 rounded-2xl'>
                                     <Image
-                                        src={'/dummy-merch.jpg'}
-                                        alt='merch'
+                                        src={merch.img}
+                                        alt={merch.name}
                                         width={251}
                                         height={232}
-                                        className='object-cover rounded-[24px]'
+                                        className='object-contain rounded-[24px] h-[232px]'
                                     />
                                 </CardHeader>
                                 <CardContent className='p-0 mt-[30px]'>
