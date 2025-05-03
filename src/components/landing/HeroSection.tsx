@@ -1,4 +1,3 @@
-import Countdown from '../countdown';
 import { ElementsButton } from '../ElementsButton';
 import Navbar from '../Navbar';
 import Image from 'next/image';
@@ -6,7 +5,6 @@ import Image from 'next/image';
 export function HeroSection() {
     return (
         <main id='hero' className='min-h-screen flex flex-col'>
-            <Countdown />
             <nav className='w-full'>
                 <Navbar />
             </nav>
@@ -52,7 +50,7 @@ export function HeroSection() {
                             </span>
                         </h1>
 
-                        <p className='mt-30 text-xl font-[family-name:var(--font-raleway)] italic font-bold'>
+                        <p className='mt-30 text-xl font-[family-name:var(--font-raleway)] italic font-medium'>
                             Every thread has a story. What tapestry do you want to weave?
                         </p>
 
