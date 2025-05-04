@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import {
     Geist,
     Geist_Mono,
+    Cinzel,
     Cinzel_Decorative,
     Playfair_Display,
     Raleway,
@@ -34,7 +35,16 @@ const playfairDisplay = Playfair_Display({
 });
 
 const cinzelDecorative = Cinzel_Decorative({
+    variable: '--font-cinzel-decorative',
     subsets: ['latin'],
+    weight: ['400', '700', '900'],
+});
+
+
+const cinzelNormal = Cinzel({
+    variable: '--font-cinzel',
+    subsets: ['latin'],
+    style: ['normal'],
     weight: ['400', '700', '900'],
 });
 
@@ -52,7 +62,7 @@ export default function RootLayout({
         <html lang='en' suppressHydrationWarning>
             <body
                 suppressHydrationWarning
-                className={`${geistSans.variable} ${raleway.variable} ${playfairDisplay.variable} ${geistMono.variable} ${cinzelDecorative.className} antialiased`}
+                className={`${geistSans.variable} ${raleway.variable} ${cinzelNormal.variable} ${playfairDisplay.variable} ${geistMono.variable} ${cinzelDecorative.className}  antialiased`}
             >
                 <ThemeProvider
                     attribute='class'

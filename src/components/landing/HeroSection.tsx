@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ElementsButton } from '../ElementsButton';
 import Navbar from '../Navbar';
 import Image from 'next/image';
@@ -19,8 +20,8 @@ export function HeroSection() {
                         />
                     </div>
                     <div className='mx-auto text-center'>
-                        <h1 className='scroll-m-20 font-bold text-2xl sm:text-3xl md:text-6xl lg:text-7xl xl:text-8xl relative'>
-                            <span className='inline-flex items-center'>
+                        <h1 className='scroll-m-20 font-bold text-2xl sm:text-3xl md:text-6xl lg:text-7xl xl:text-8xl relative font-[family-name:var(--font-cinzel-decorative)]'>
+                            <span className='inline-flex items-center font-[family-name:var(--font-cinzel-decorative)]'>
                                 Tailoring{' '}
                                 <span className='flex items-center font-[family-name:var(--font-playfair-display)] lg:text-5xl italic font-normal'>
                                     <Image
@@ -58,9 +59,11 @@ export function HeroSection() {
                             <ElementsButton variant='red' className="whitespace-nowrap min-w-[280px]">
                                 Get your ticket now
                             </ElementsButton>
-                            <ElementsButton variant='gold'>
-                                Buy merch
-                            </ElementsButton>
+                            <Link href="/merch">
+                                <ElementsButton variant='gold'>
+                                    Buy merch
+                                </ElementsButton>
+                            </Link>
                         </div>
                     </div>
                 </div>

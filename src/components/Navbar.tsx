@@ -28,7 +28,7 @@ export default function Navbar() {
                 </SheetTrigger>
                 <SheetContent side='left'>
                     <Link
-                        href='#'
+                        href='/'
                         className='mr-6 hidden lg:flex'
                         prefetch={false}
                     >
@@ -57,7 +57,7 @@ export default function Navbar() {
                             About Us
                         </button>
                         <Link
-                            href='#'
+                            href='/'
                             className='flex w-full items-center py-2 text-lg font-semibold'
                             prefetch={false}
                         >
@@ -66,7 +66,7 @@ export default function Navbar() {
                     </div>
                 </SheetContent>
             </Sheet>
-            <Link href='#' className='mr-6 hidden lg:flex' prefetch={false}>
+            <Link href='/' className='mr-6 hidden lg:flex' prefetch={false}>
                 <Image
                     src='/logo.png'
                     alt='TEDxTelkom University logo'
