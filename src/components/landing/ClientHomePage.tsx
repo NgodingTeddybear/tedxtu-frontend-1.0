@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { HeroSection, FaqSection, VisionSection } from '@/components/landing';
+import { HeroSection, FaqSection, VisionSection, SpeakersSection } from '@/components/landing';
 import Countdown from '@/components/countdown';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import MapSection from './MapSection';
 
 export function ClientHomePage() {
     const countdownRef = useRef<HTMLDivElement>(null);
@@ -72,6 +73,8 @@ export function ClientHomePage() {
                 <HeroSection />
                 <VisionSection />
                 <FaqSection />
+                <MapSection />
+                <SpeakersSection />
             </div>
         </div>
     );
