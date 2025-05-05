@@ -6,17 +6,11 @@ import {
     SheetContent,
     SheetTitle,
 } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
-    const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    };
     return (
         <header className='flex h-20 w-full shrink-0 items-center px-4 md:px-14 md:py-14'>
             <Sheet>
@@ -44,18 +38,18 @@ export default function Navbar() {
                         <span className='sr-only'>TEDxTelkom University</span>
                     </Link>
                     <div className='grid gap-2 py-6'>
-                        <button
-                            onClick={() => scrollToSection('hero')}
+                        <Link
+                            href={"/"}
                             className='flex w-full items-center py-2 text-lg font-semibold'
                         >
                             Home
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('about')}
+                        </Link>
+                        <Link
+                            href={"/#about"}
                             className='flex w-full items-center py-2 text-lg font-semibold'
                         >
                             About Us
-                        </button>
+                        </Link>
                         <Link
                             href='/'
                             className='flex w-full items-center py-2 text-lg font-semibold'
@@ -77,18 +71,18 @@ export default function Navbar() {
                 <span className='sr-only'>TEDxTelkom University</span>
             </Link>
             <nav className='ml-auto hidden lg:flex gap-8'>
-                <button
-                    onClick={() => scrollToSection('hero')}
+                <Link
+                    href={"/"}
                     className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
                 >
                     Home
-                </button>
-                <button
-                    onClick={() => scrollToSection('about')}
+                </Link>
+                <Link
+                    href={"/#about"}
                     className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
                 >
                     About Us
-                </button>
+                </Link>
                 <Link
                     href='#'
                     className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
