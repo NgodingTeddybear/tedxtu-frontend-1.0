@@ -105,3 +105,72 @@ body {
 .animate-accordion-up {
     animation: accordion-up 0.2s ease-out;
 }
+
+
+
+.accordion-animate {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .accordion-animate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(229, 62, 62, 0.6), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+  }
+  
+  .accordion-animate:hover::before {
+    transform: translateX(100%);
+  }
+  
+  /* Animasi untuk konten accordion ketika terbuka */
+  .accordion-content-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .accordion-content-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  /* Efek hover untuk gambar dalam accordion */
+  .accordion-image {
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+  
+  .accordion-image:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* For Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+  }

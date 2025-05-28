@@ -4,3 +4,5 @@ export { SpeakersSection } from './Speakerssection';
 export { VisionSection } from './VisionSection';
 export { ClientHomePage } from './ClientHomePage';
 export { AboutSection } from './AboutSection';
+export { MapSection } from './MapSection';
+export { EventSection } from './EventSection';

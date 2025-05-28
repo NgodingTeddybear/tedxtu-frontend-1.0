@@ -180,6 +180,9 @@ const ImageAccordion = ({
                   display: 'block'
                 }}
               />
+              
+
+              
 
               {/* Content Overlay */}
               <div className="absolute inset-0 p-6 mt-32">

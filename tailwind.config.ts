@@ -62,6 +62,23 @@ export default {
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)',
             },
+
+            animation: {
+                'float': 'float 10s ease-in-out infinite',
+                'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              },
+              keyframes: {
+                float: {
+                  '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                  '25%': { transform: 'translateY(-10px) rotate(5deg)' },
+                  '50%': { transform: 'translateY(0) rotate(0deg)' },
+                  '75%': { transform: 'translateY(10px) rotate(-5deg)' },
+                },
+                'pulse-slow': {
+                  '0%, 100%': { transform: 'scale(1) rotate(0deg)' },
+                  '50%': { transform: 'scale(1.05) rotate(3deg)' },
+                },
+              },
         },
     },
     plugins: [require('tailwindcss-animate')],
