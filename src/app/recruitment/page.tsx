@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import { Accordion } from '@radix-ui/react-accordion';
 import Image from 'next/image';
 import { useState } from 'react';
+import { delay, motion } from 'framer-motion';
 
 const DIVISIONS = [
     {
@@ -80,13 +81,19 @@ export default function Recuitment() {
 
             {/* hero */}
             <div className='relative flex flex-col justify-center items-center gap-24 w-full h-screen [background-image:url("../../public/recruitment-bg.png")] bg-cover'>
-                <Image
-                    alt='daisy'
-                    src={'/recruitment-flower/daisy.svg'}
-                    width={191}
-                    height={197}
+                <motion.div
+                    // initial={{ rotate: 10 }}
+                    animate={{ y: ["0%", "-20%", "0%"], rotate: ["10deg", "0deg", "10deg"] }}
+                    transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
                     className='absolute -bottom-10 left-[-25px] z-20'
-                />
+                >
+                    <Image
+                        alt='daisy'
+                        src={'/recruitment-flower/daisy.svg'}
+                        width={191}
+                        height={197}
+                    />
+                </motion.div>
                 <Image
                     alt='flower collection'
                     src={'/recruitment-flower/flower-collection.png'}
@@ -101,13 +108,19 @@ export default function Recuitment() {
                     height={29}
                     className='absolute top-1/4 left-[10%]'
                 />
-                <Image
-                    alt='marigold'
-                    src={'/recruitment-flower/marigold.png'}
-                    width={188}
-                    height={148}
-                    className='absolute top-[-10px] right-[-25px] rotate-[-120deg]'
-                />
+                <motion.div
+                    animate={{ scale: [0.5, 1, 0.9, 1, 0.9, 1, 0.5] }}
+                    transition={{ duration: 10, repeat: Infinity }}
+                    className='absolute top-[-10px] right-[-25px]'
+                >
+                    <Image
+                        alt='marigold'
+                        src={'/recruitment-flower/marigold.png'}
+                        width={188}
+                        height={148}
+                        className='rotate-[-120deg]'
+                    />
+                </motion.div>
                 <div className='flex flex-col justify-center items-center gap-2 z-10'>
                     <h1 className='text-5xl font-black text-center'>
                         Yes, you are the next generation
@@ -167,7 +180,12 @@ export default function Recuitment() {
                     <span className='italic text-xl font-bold'>Asked</span>{' '}
                     Question
                 </h2>
-                <Accordion type='single' collapsible value={expanded} onValueChange={setExpanded}>
+                <Accordion
+                    type='single'
+                    collapsible
+                    value={expanded}
+                    onValueChange={setExpanded}
+                >
                     {FAQ.map((faq, index) => (
                         <EnhancedAccordionItem
                             key={index}
