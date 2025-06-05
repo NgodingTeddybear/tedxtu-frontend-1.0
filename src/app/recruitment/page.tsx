@@ -6,8 +6,9 @@ import EnhancedAccordionItem from '@/components/EnhancedAccordionItem';
 import Navbar from '@/components/Navbar';
 import { Accordion } from '@radix-ui/react-accordion';
 import Image from 'next/image';
-import { useState } from 'react';
-import { delay, motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const DIVISIONS = [
     {
@@ -72,6 +73,25 @@ const FAQ = [
 
 export default function Recuitment() {
     const [expanded, setExpanded] = useState<string | undefined>(undefined);
+    const cardWrapperRef = useRef<HTMLDivElement>(null);
+
+    function scrollLeft() {
+        if (cardWrapperRef.current) {
+            cardWrapperRef.current.scrollBy({
+                left: -300,
+                behavior: 'smooth',
+            });
+        }
+    }
+
+    function scrollRight() {
+        if (cardWrapperRef.current) {
+            cardWrapperRef.current.scrollBy({
+                left: 300,
+                behavior: 'smooth',
+            });
+        }
+    }
 
     return (
         <main className='min-h-screen relative overflow-x-hidden'>
@@ -83,8 +103,15 @@ export default function Recuitment() {
             <div className='relative flex flex-col justify-center items-center gap-24 w-full h-screen [background-image:url("../../public/recruitment-bg.png")] bg-cover'>
                 <motion.div
                     // initial={{ rotate: 10 }}
-                    animate={{ y: ["0%", "-20%", "0%"], rotate: ["10deg", "0deg", "10deg"] }}
-                    transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                    animate={{
+                        y: ['0%', '-20%', '0%'],
+                        rotate: ['10deg', '0deg', '10deg'],
+                    }}
+                    transition={{
+                        repeat: Infinity,
+                        duration: 5,
+                        ease: 'easeInOut',
+                    }}
                     className='absolute -bottom-10 left-[-25px] z-20'
                 >
                     <Image
@@ -152,7 +179,7 @@ export default function Recuitment() {
             </div>
 
             {/* Division */}
-            <div className='flex flex-col gap-20 mb-44'>
+            <div className='flex flex-col gap-10 mb-44'>
                 <div>
                     <h2 className='text-5xl font-black text-center'>
                         Our Division
@@ -161,14 +188,24 @@ export default function Recuitment() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
                 </div>
-                <div className='flex gap-6 overflow-x-scroll no-scrollbar'>
+                <div
+                    ref={cardWrapperRef}
+                    className='flex gap-6 overflow-x-scroll no-scrollbar mt-10 snap-x'
+                >
                     {DIVISIONS.map((div, index) => (
                         <DivisionCard
                             key={index}
                             title={div.name}
                             description={div.description}
+                            className='snap-center'
                         />
                     ))}
+                </div>
+                <div
+                    className='flex justify-end gap-4 px-8'
+                >
+                    <ChevronLeft onClick={scrollLeft} />
+                    <ChevronRight onClick={scrollRight} />
                 </div>
             </div>
 
