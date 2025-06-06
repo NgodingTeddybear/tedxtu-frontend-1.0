@@ -131,7 +131,7 @@ export default function Recuitment() {
             </nav>
 
             {/* hero */}
-            <div className='relative flex flex-col justify-center items-center gap-24 w-full h-screen [background-image:url("../../public/recruitment-bg.png")] bg-cover'>
+            <div className='relative flex flex-col justify-center items-center gap-12 w-full h-screen [background-image:url("../../public/recruitment-bg.png")] bg-cover bg-center'>
                 <motion.div
                     animate={{
                         y: ['0%', '-20%', '0%'],
@@ -178,14 +178,12 @@ export default function Recuitment() {
                         className='rotate-[-120deg]'
                     />
                 </motion.div>
-                <div className='flex flex-col justify-center items-center gap-2 z-10'>
-                    <h1 className='text-5xl font-black text-center'>
-                        Yes, you are the next generation
+                <div className='flex flex-col justify-center items-center gap-1 z-10 px-10'>
+                    <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold text-center'>
+                        Yes, you are the<br />next generation
                     </h1>
-                    <p className='font-[raleway] text-center text-2xl max-w-[800px]'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc porta, sem ut suscipit finibus, odio sapien
-                        vulputate eros
+                    <p className='font-[raleway] text-center text-xl max-w-[800px] italic'>
+                        The path to greatness requires the biggest leap of faith. Are you ready?
                     </p>
                 </div>
                 <div className='flex gap-8'>
