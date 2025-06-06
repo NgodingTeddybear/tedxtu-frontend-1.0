@@ -6,7 +6,7 @@ import EnhancedAccordionItem from '@/components/EnhancedAccordionItem';
 import Navbar from '@/components/Navbar';
 import { Accordion } from '@radix-ui/react-accordion';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -73,11 +73,29 @@ const FAQ = [
 
 export default function Recuitment() {
     const [expanded, setExpanded] = useState<string | undefined>(undefined);
-    const cardWrapperRef = useRef<HTMLDivElement>(null);
+    const [_, setScrollY] = useState(0);
+
+    const divisionCardWrapperRef = useRef<HTMLDivElement>(null);
+    const divisionContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    function scrollToDivision() {
+        if (divisionContainerRef.current) {
+            divisionContainerRef.current.scrollIntoView();
+        }
+    }
 
     function scrollLeft() {
-        if (cardWrapperRef.current) {
-            cardWrapperRef.current.scrollBy({
+        if (divisionCardWrapperRef.current) {
+            divisionCardWrapperRef.current.scrollBy({
                 left: -300,
                 behavior: 'smooth',
             });
@@ -85,13 +103,26 @@ export default function Recuitment() {
     }
 
     function scrollRight() {
-        if (cardWrapperRef.current) {
-            cardWrapperRef.current.scrollBy({
+        if (divisionCardWrapperRef.current) {
+            divisionCardWrapperRef.current.scrollBy({
                 left: 300,
                 behavior: 'smooth',
             });
         }
     }
+
+    const divisionCardWrapperVariant = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1, type: 'spring' },
+        },
+    };
+
+    const divisonCardVariant = {
+        hidden: { opacity: 0, y: 200 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    };
 
     return (
         <main className='min-h-screen relative overflow-x-hidden'>
@@ -102,14 +133,13 @@ export default function Recuitment() {
             {/* hero */}
             <div className='relative flex flex-col justify-center items-center gap-24 w-full h-screen [background-image:url("../../public/recruitment-bg.png")] bg-cover'>
                 <motion.div
-                    // initial={{ rotate: 10 }}
                     animate={{
                         y: ['0%', '-20%', '0%'],
                         rotate: ['10deg', '0deg', '10deg'],
                     }}
                     transition={{
                         repeat: Infinity,
-                        duration: 5,
+                        duration: 10,
                         ease: 'easeInOut',
                     }}
                     className='absolute -bottom-10 left-[-25px] z-20'
@@ -137,7 +167,7 @@ export default function Recuitment() {
                 />
                 <motion.div
                     animate={{ scale: [0.5, 1, 0.9, 1, 0.9, 1, 0.5] }}
-                    transition={{ duration: 10, repeat: Infinity }}
+                    transition={{ duration: 20, repeat: Infinity }}
                     className='absolute top-[-10px] right-[-25px]'
                 >
                     <Image
@@ -159,8 +189,16 @@ export default function Recuitment() {
                     </p>
                 </div>
                 <div className='flex gap-8'>
-                    <ElementsButton>Join us</ElementsButton>
-                    <ElementsButton variant={'gold'}>More info</ElementsButton>
+                    <ElementsButton className='hover:scale-105 transition-transform duration-300'>
+                        Join us
+                    </ElementsButton>
+                    <ElementsButton
+                        onClick={scrollToDivision}
+                        variant={'gold'}
+                        className='hover:scale-105 transition-transform duration-300'
+                    >
+                        More info
+                    </ElementsButton>
                 </div>
             </div>
 
@@ -173,37 +211,89 @@ export default function Recuitment() {
                     height={705}
                     className='absolute inset-0 m-auto'
                 />
-                <h2 className='text-5xl font-black text-center'>
-                    Oprec Timeline
-                </h2>
+                <motion.h2
+                    className='text-5xl font-black text-center'
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true }}
+                >
+                    <span className='relative'>
+                        Oprec
+                        <motion.div
+                            className='bg-red-500 w-full h-1 absolute left-0 -bottom-2'
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '100%' }}
+                            transition={{ delay: 1 }}
+                            viewport={{ once: true }}
+                        />
+                    </span>{' '}
+                    Timeline
+                </motion.h2>
             </div>
 
             {/* Division */}
-            <div className='flex flex-col gap-10 mb-44'>
-                <div>
-                    <h2 className='text-5xl font-black text-center'>
-                        Our Division
-                    </h2>
-                    <p className='font-[raleway] text-center text-xl'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                </div>
-                <div
-                    ref={cardWrapperRef}
-                    className='flex gap-6 overflow-x-scroll no-scrollbar mt-10 snap-x'
-                >
-                    {DIVISIONS.map((div, index) => (
-                        <DivisionCard
-                            key={index}
-                            title={div.name}
-                            description={div.description}
-                            className='snap-center'
+            <div
+                ref={divisionContainerRef}
+                className='relative flex flex-col gap-10 mb-44 pt-20'
+            >
+                <div className='absolute inset-0 pointer-events-none'>
+                    {[...Array(8)].map((_, i) => (
+                        <div
+                            key={i}
+                            className='absolute w-2 h-2 rounded-full bg-amber-200/30 animate-float'
+                            style={{
+                                left: `${10 + Math.random() * 80}%`,
+                                top: `${10 + Math.random() * 80}%`,
+                                animationDelay: `${i * 0.5}s`,
+                                animationDuration: `${6 + Math.random() * 10}s`,
+                            }}
                         />
                     ))}
                 </div>
-                <div
-                    className='flex justify-end gap-4 px-8'
+                <div>
+                    <motion.h2
+                        className='text-5xl font-black text-center'
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        Our Division
+                    </motion.h2>
+                    <motion.p
+                        className='font-[raleway] text-center text-xl'
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.25 }}
+                        viewport={{ once: true }}
+                    >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </motion.p>
+                </div>
+                <motion.div
+                    ref={divisionCardWrapperRef}
+                    className='flex gap-6 overflow-x-scroll no-scrollbar py-10 px-6 snap-x'
+                    variants={divisionCardWrapperVariant}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true }}
                 >
+                    {DIVISIONS.map((div, index) => (
+                        <motion.div
+                            key={index}
+                            variants={divisonCardVariant}
+                            whileHover={{ scale: 1.15 }}
+                        >
+                            <DivisionCard
+                                key={index}
+                                title={div.name}
+                                description={div.description}
+                            />
+                        </motion.div>
+                    ))}
+                </motion.div>
+                <div className='flex justify-end gap-4 px-8'>
                     <ChevronLeft onClick={scrollLeft} />
                     <ChevronRight onClick={scrollRight} />
                 </div>
@@ -211,12 +301,18 @@ export default function Recuitment() {
 
             {/* FAQ */}
             <div className='flex flex-col gap-12 px-16 pb-20'>
-                <h2 className='text-5xl font-black text-center'>
+                <motion.h2
+                    className='text-5xl font-black text-center'
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true }}
+                >
                     Frequently
                     <br />
                     <span className='italic text-xl font-bold'>Asked</span>{' '}
                     Question
-                </h2>
+                </motion.h2>
                 <Accordion
                     type='single'
                     collapsible
