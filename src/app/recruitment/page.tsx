@@ -142,13 +142,14 @@ export default function Recuitment() {
                         duration: 10,
                         ease: 'easeInOut',
                     }}
-                    className='absolute -bottom-10 left-[-25px] z-20'
+                    className='absolute bottom-0 sm:-bottom-10 left-[-25px] z-20'
                 >
                     <Image
                         alt='daisy'
                         src={'/recruitment-flower/daisy.svg'}
                         width={191}
                         height={197}
+                        className='w-[98px] h-[95px] sm:w-[197px] sm:h-[191px]'
                     />
                 </motion.div>
                 <Image
@@ -156,14 +157,14 @@ export default function Recuitment() {
                     src={'/recruitment-flower/flower-collection.png'}
                     width={116}
                     height={73}
-                    className='absolute right-[44%] top-[calc(25%+40px)] m-auto'
+                    className='absolute right-[44%] top-[calc(25%+40px)] m-auto w-[58px] h-[36px] sm:w-[116px] sm:h-[73px]'
                 />
                 <Image
                     alt='flower small'
                     src={'/recruitment-flower/flower-small.svg'}
                     width={37}
                     height={29}
-                    className='absolute top-1/4 left-[10%]'
+                    className='absolute top-1/4 left-[10%] w-[18px] h-[13px] sm:w-[37px] sm:h-[29px]'
                 />
                 <motion.div
                     animate={{ scale: [0.5, 1, 0.9, 1, 0.9, 1, 0.5] }}
@@ -175,7 +176,7 @@ export default function Recuitment() {
                         src={'/recruitment-flower/marigold.png'}
                         width={188}
                         height={148}
-                        className='rotate-[-120deg]'
+                        className='rotate-[-120deg] w-[94px] h-[74px] sm:w-[188px] sm:h-[148px]'
                     />
                 </motion.div>
                 <div className='flex flex-col justify-center items-center gap-1 z-10 px-10'>
@@ -184,7 +185,7 @@ export default function Recuitment() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1 }}
                         viewport={{ once: true }}
-                        className='text-5xl md:text-6xl lg:text-7xl font-bold text-center'
+                        className='text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center'
                     >
                         Yes, you are the
                         <br />
@@ -195,7 +196,7 @@ export default function Recuitment() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className='font-[raleway] text-center text-xl max-w-[800px] italic'
+                        className='font-[raleway] text-center text-sm sm:text-xl max-w-[800px] italic'
                     >
                         The path to greatness requires the biggest leap of
                         faith. Are you ready?
@@ -206,15 +207,15 @@ export default function Recuitment() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className='flex gap-8'
+                    className='flex flex-col sm:flex-row gap-4 sm:gap-8 w-full sm:w-auto px-8 sm:px-0'
                 >
-                    <ElementsButton className='hover:scale-105 transition-transform duration-300'>
+                    <ElementsButton className='hover:scale-105 transition-transform duration-300 w-full sm:w-auto'>
                         Join us
                     </ElementsButton>
                     <ElementsButton
                         onClick={scrollToDivision}
                         variant={'gold'}
-                        className='hover:scale-105 transition-transform duration-300'
+                        className='hover:scale-105 transition-transform duration-300 w-full sm:w-auto'
                     >
                         More info
                     </ElementsButton>
@@ -231,7 +232,7 @@ export default function Recuitment() {
                     className='absolute inset-0 m-auto'
                 />
                 <motion.h2
-                    className='text-5xl font-black text-center'
+                    className='text-2xl sm:text-4xl md:text-5xl font-bold text-center'
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
@@ -272,7 +273,7 @@ export default function Recuitment() {
                 </div>
                 <div>
                     <motion.h2
-                        className='text-5xl font-black text-center'
+                        className='text-2xl sm:text-4xl md:text-5xl font-bold text-center'
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
@@ -281,13 +282,13 @@ export default function Recuitment() {
                         Our Division
                     </motion.h2>
                     <motion.p
-                        className='font-[raleway] text-center text-xl'
+                        className='font-[raleway] text-center text-sm sm:text-xl italic'
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.25 }}
                         viewport={{ once: true }}
                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        The backbones of TEDxTelkomUniversity
                     </motion.p>
                 </div>
                 <motion.div
@@ -321,7 +322,7 @@ export default function Recuitment() {
             {/* FAQ */}
             <div className='flex flex-col gap-12 px-16 pb-20'>
                 <motion.h2
-                    className='text-5xl font-black text-center'
+                    className='text-2xl sm:text-4xl md:text-5xl font-bold text-center'
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
@@ -329,7 +330,7 @@ export default function Recuitment() {
                 >
                     Frequently
                     <br />
-                    <span className='italic text-xl font-bold'>Asked</span>{' '}
+                    <span className='italic text-sm font-bold'>Asked</span>{' '}
                     Question
                 </motion.h2>
                 <Accordion
