@@ -13,7 +13,7 @@ interface Faq {
     answer: string;
 }
 
-export default function EnhancedAccordionItem({ faq, index, isExpanded, setExpanded }: { faq: Faq; index: number; isExpanded: string | null; setExpanded: React.Dispatch<React.SetStateAction<string | null>> }) {
+export default function EnhancedAccordionItem({ faq, index, isExpanded, setExpanded }: { faq: Faq; index: number; isExpanded: string | undefined; setExpanded: React.Dispatch<React.SetStateAction<string | undefined>> }) {
   const isEven = index % 2 === 0;
     const gradient = isEven
         ? 'bg-gradient-to-r from-[#951900] to-[#CE2406]'
