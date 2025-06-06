@@ -179,14 +179,35 @@ export default function Recuitment() {
                     />
                 </motion.div>
                 <div className='flex flex-col justify-center items-center gap-1 z-10 px-10'>
-                    <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold text-center'>
-                        Yes, you are the<br />next generation
-                    </h1>
-                    <p className='font-[raleway] text-center text-xl max-w-[800px] italic'>
-                        The path to greatness requires the biggest leap of faith. Are you ready?
-                    </p>
+                    <motion.h1
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true }}
+                        className='text-5xl md:text-6xl lg:text-7xl font-bold text-center'
+                    >
+                        Yes, you are the
+                        <br />
+                        next generation
+                    </motion.h1>
+                    <motion.p
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className='font-[raleway] text-center text-xl max-w-[800px] italic'
+                    >
+                        The path to greatness requires the biggest leap of
+                        faith. Are you ready?
+                    </motion.p>
                 </div>
-                <div className='flex gap-8'>
+                <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                    viewport={{ once: true }}
+                    className='flex gap-8'
+                >
                     <ElementsButton className='hover:scale-105 transition-transform duration-300'>
                         Join us
                     </ElementsButton>
@@ -197,7 +218,7 @@ export default function Recuitment() {
                     >
                         More info
                     </ElementsButton>
-                </div>
+                </motion.div>
             </div>
 
             {/* Timeline */}
