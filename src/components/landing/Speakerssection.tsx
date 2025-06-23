@@ -121,7 +121,7 @@ export const SpeakersSection = () => {
 
   return (
     <motion.section 
-      className="relative w-full overflow-hidden py-16 bg-[#0A0A0A]"
+      className="relative w-full overflow-hidden py-16 bg-[#000000]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

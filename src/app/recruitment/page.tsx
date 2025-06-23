@@ -11,65 +11,56 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const DIVISIONS = [
-    {
-        name: 'PnO',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
-    },
+    
     {
         name: 'VCL',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
+            'Manages technical setup, vendor coordination, inventory, and trasportation based on event needs and timelines.',
     },
     {
         name: 'PnF',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
+            'Oversees sponsor relations and financial management for the event and ensures effective partnerships, accurate budgeting, and smooth financial operations.',
     },
     {
         name: 'MnD',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
-    },
-    {
-        name: 'EnS',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
+            'Handles content creation, event documentation, and website management to ensure strong digital presence and smooth media operations.',
     },
     {
         name: 'EComm',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
+            ' Responsible for coordinating event setups and ensure smooth execution by organizing materials, presentations, and providing support to speakers.',
     },
     {
         name: 'AIS',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, sem ut suscipit finibus.',
+            'Handles audience engagement, feedback, and data analysis, while also supporting internal communication, training, and staff satisfaction.',
     },
 ];
 
-const FAQ = [
-    {
-        question: 'Apa itu TEDx Telkom University?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
-    },
-    {
-        question: 'Kapan Acara Ini Dilaksanakan?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
-    },
-    {
-        question: 'Siapa Saja yang Bisa Mengikuti Acara Ini?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
-    },
-    {
-        question: 'Bagaimana Cara Mendaftar?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
-    },
-    {
-        question: 'Apa Manfaat Mengikuti Acara Ini?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
-    },
-];
+// const FAQ = [
+//     {
+//         question: 'Apa itu TEDx Telkom University?',
+//         answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+//     },
+//     {
+//         question: 'Kapan Acara Ini Dilaksanakan?',
+//         answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+//     },
+//     {
+//         question: 'Siapa Saja yang Bisa Mengikuti Acara Ini?',
+//         answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+//     },
+//     {
+//         question: 'Bagaimana Cara Mendaftar?',
+//         answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+//     },
+//     {
+//         question: 'Apa Manfaat Mengikuti Acara Ini?',
+//         answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+//     },
+// ];
 
 export default function Recuitment() {
     const [expanded, setExpanded] = useState<string | undefined>(undefined);
@@ -128,13 +119,13 @@ export default function Recuitment() {
                     height={73}
                     className='absolute right-[44%] top-[calc(25%+40px)] m-auto'
                 />
-                <Image
+                {/* <Image
                     alt='flower small'
                     src={'/recruitment-flower/flower-small.svg'}
                     width={37}
                     height={29}
                     className='absolute top-1/4 left-[10%]'
-                />
+                /> */}
                 <motion.div
                     animate={{ scale: [0.5, 1, 0.9, 1, 0.9, 1, 0.5] }}
                     transition={{ duration: 10, repeat: Infinity }}
@@ -153,9 +144,9 @@ export default function Recuitment() {
                         Yes, you are the next generation
                     </h1>
                     <p className='font-[raleway] text-center text-2xl max-w-[800px]'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc porta, sem ut suscipit finibus, odio sapien
-                        vulputate eros
+                        Join us to be part of the biggest student organization in Indonesia.
+                        <br />
+                        We are looking for the best talents to join our team.
                     </p>
                 </div>
                 <div className='flex gap-8'>
@@ -184,9 +175,9 @@ export default function Recuitment() {
                     <h2 className='text-5xl font-black text-center'>
                         Our Division
                     </h2>
-                    <p className='font-[raleway] text-center text-xl'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                    <p className='text-center text-xl max-w-[800px] mx-auto'>
+                        We are looking for the best talents to join our team. We have 5 divisions
+                        that you can choose from.</p>
                 </div>
                 <div
                     ref={cardWrapperRef}
@@ -209,8 +200,10 @@ export default function Recuitment() {
                 </div>
             </div>
 
+
+
             {/* FAQ */}
-            <div className='flex flex-col gap-12 px-16 pb-20'>
+            {/* <div className='flex flex-col gap-12 px-16 pb-20'>
                 <h2 className='text-5xl font-black text-center'>
                     Frequently
                     <br />
@@ -233,7 +226,7 @@ export default function Recuitment() {
                         />
                     ))}
                 </Accordion>
-            </div>
+            </div> */}
         </main>
     );
 }

@@ -37,7 +37,7 @@ export default function Navbar() {
                         </SheetTitle>
                         <span className='sr-only'>TEDxTelkom University</span>
                     </Link>
-                    <div className='grid gap-2 py-6'>
+                    {/* <div className='grid gap-2 py-6'>
                         <Link
                             href={"/"}
                             className='flex w-full items-center py-2 text-lg font-semibold'
@@ -57,7 +57,7 @@ export default function Navbar() {
                         >
                             Event
                         </Link>
-                    </div>
+                    </div> */}
                 </SheetContent>
             </Sheet>
             <Link href='/' className='mr-6 hidden lg:flex' prefetch={false}>
@@ -84,13 +84,12 @@ export default function Navbar() {
                     About Us
                 </Link>
                 <Link
-                    
-                    href='/merch'
-                    
+                    href='/event'
                     className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
-                    prefetch={false}>
+                    prefetch={false}
+                >
                     <button>
-                    Event
+                        Event
                     </button>
                 </Link>
             </nav>

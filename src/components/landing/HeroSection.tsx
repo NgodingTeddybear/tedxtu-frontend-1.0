@@ -213,18 +213,20 @@ export function HeroSection() {
                             transition-all duration-1000 delay-700 ease-out
                             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                         `}>
-                            <ElementsButton 
+                           <Link href="https://www.instagram.com/tedxtelkomuniversity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="> 
+                                <ElementsButton 
                                 variant='red' 
                                 className="whitespace-nowrap min-w-[280px] hover:scale-105 transition-transform duration-300"
-                            >
-                                Get your ticket now
-                            </ElementsButton>
-                            <Link href="/merch">
+                                >
+                                    Follow us on Instagram  
+                             </ElementsButton>
+                            </Link>
+                             <Link href="/recruitment">
                                 <ElementsButton 
                                     variant='gold'
                                     className="hover:scale-105 transition-transform duration-300"
                                 >
-                                    Buy merch
+                                    Join our team
                                 </ElementsButton>
                             </Link>
                         </div>

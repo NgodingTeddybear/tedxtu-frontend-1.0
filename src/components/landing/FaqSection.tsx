@@ -19,23 +19,23 @@ const decorElements = [
 const faqData = [
     {
         question: 'Apa itu TEDx Telkom University?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+        answer: 'TeDx Telkom University adalah sebuah organisasi yang didirikan oleh mahasiswa Telkom University untuk berbagi ide-ide inovatif dan inspiratif melalui format TEDx.',
     },
     {
         question: 'Kapan Acara Ini Dilaksanakan?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+        answer: 'Main event TEDx Telkom University akan dilaksanakan pada tanggal 4 Mei 2024. Acara ini akan dimulai pukul 12.00 WIB.',
     },
     {
         question: 'Siapa Saja yang Bisa Mengikuti Acara Ini?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+        answer: 'Acara ini terbuka untuk umum, baik mahasiswa Telkom University maupun masyarakat umum yang tertarik dengan tema yang diangkat.',
     },
     {
         question: 'Bagaimana Cara Mendaftar?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+        answer: 'Untuk mendaftar, kunjungi situs form resmi kami di yang tercnatum pada instagram tedxtelkomuniversity dan ikuti petunjuk pendaftaran yang tersedia.',
     },
     {
         question: 'Apa Manfaat Mengikuti Acara Ini?',
-        answer: 'Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet   Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet     Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet Lorem Ipsum dolor amet    ',
+        answer: 'Mengikuti acara ini akan memberikan kesempatan untuk mendengarkan pembicara inspiratif, memperluas wawasan, dan berinteraksi dengan komunitas yang memiliki minat yang sama.',
     },
 ];
 

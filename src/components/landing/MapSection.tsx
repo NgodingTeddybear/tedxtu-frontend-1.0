@@ -138,9 +138,9 @@ export function MapSection({
             )}
         </motion.button>
     );
-/*bg-[#0A0A0A]*/
+/*bg-[#0000000]*/
     return (
-        <section id="venue-section" className="py-16 relative overflow-hidden bg-[#0A0A0A]">
+        <section id="venue-section" className="py-16 relative overflow-hidden bg-[#000000]">
             {/* Decorative floating elements */}
             {decorElements.map((elem, index) => (
                 <motion.div
