@@ -21,43 +21,21 @@ export default function Navbar() {
                     </Button>
                 </SheetTrigger>
                 <SheetContent side='left'>
-                    <Link
-                        href='/'
-                        className='mr-6 hidden lg:flex'
-                        prefetch={false}
-                    >
-                        <SheetTitle>
+                    <div className='flex flex-col items-start gap-6 py-6'>
+                        <Link href='/' className='flex items-center gap-2' prefetch={false}>
                             <Image
                                 src='/logo.png'
                                 alt='TEDxTelkom University logo'
-                                width={172}
-                                height={43}
+                                width={120}
+                                height={30}
                                 quality={100}
                             />
-                        </SheetTitle>
-                        <span className='sr-only'>TEDxTelkom University</span>
-                    </Link>
-                    {/* <div className='grid gap-2 py-6'>
-                        <Link
-                            href={"/"}
-                            className='flex w-full items-center py-2 text-lg font-semibold'
-                        >
-                            Home
+                            <span className='font-bold text-lg'>TEDxTelkom University</span>
                         </Link>
-                        <Link
-                            href={"/#about"}
-                            className='flex w-full items-center py-2 text-lg font-semibold'
-                        >
-                            About Us
-                        </Link>
-                        <Link
-                            href='/EventSection.tsx'
-                            className='flex w-full items-center py-2 text-lg font-semibold'
-                            prefetch={false}
-                        >
-                            Event
-                        </Link>
-                    </div> */}
+                        <Link href='/' className='w-full py-2 text-lg font-semibold'>Home</Link>
+                        <Link href='/#about' className='w-full py-2 text-lg font-semibold'>About Us</Link>
+                        <Link href='/event' className='w-full py-2 text-lg font-semibold' prefetch={false}>Event</Link>
+                    </div>
                 </SheetContent>
             </Sheet>
             <Link href='/' className='mr-6 hidden lg:flex' prefetch={false}>
