@@ -68,17 +68,27 @@ export function EventSection(): React.JSX.Element {
                     
                     {/* Video container */}
                     <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                        <video
+                        {/* Try Google Drive embed first, fallback to regular video */}
+                        <iframe
                             className="absolute top-0 left-0 w-full h-full rounded-lg"
+                            src="https://drive.google.com/file/d/1Kt8TMQKAM338JNtf6U5W1xFCOmavjXu5/preview"
+                            allow="autoplay"
+                            allowFullScreen
+                            title="TEDxTelkomUniversity 2025 After Movie"
+                        />
+                        
+                        {/* Fallback video element (hidden by default, can be used if iframe fails) */}
+                        <video
+                            className="absolute top-0 left-0 w-full h-full rounded-lg hidden"
                             controls
-                            autoPlay
-                            poster="/video-poster.jpg" // Add a poster image if available
+                            poster="/videos/after-movie-poster.jpg"
                         >
-                            {/* Sample video from a free API - replace with your actual video URL 
-                             <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" /> 
-                            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" /> 
-                            {/* Local video (put your video file in public/videos/ folder) */} 
-                            <source src="/Aftermovie.mp4" type="video/mp4" />
+                            {/* Direct Google Drive download link (may not work reliably) */}
+                            <source src="https://drive.google.com/uc?export=download&id=1Kt8TMQKAM338JNtf6U5W1xFCOmavjXu5" type="video/mp4" />
+                            
+                            {/* Local video fallback */}
+                            <source src="/videos/after-movie.mp4" type="video/mp4" />
+                            
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -237,8 +247,8 @@ export function EventSection(): React.JSX.Element {
 
             {/* Video Modal */}
             <VideoModal />
-            <MapSection />
-            <SpeakersSection />
+            <MapSection/>
+            <SpeakersSection/>
             <Speakers />
             <Gallery />
         </>
