@@ -3,15 +3,15 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 const galleryImages = [
-  '/gallery/gallery (1).jpg',
-  '/gallery/gallery (2).jpg',
-  '/gallery/gallery (3).jpg',
-  '/gallery/gallery (4).jpg',
-  '/gallery/gallery (5).jpg',
-  '/gallery/gallery (6).jpg',
-  '/gallery/gallery (7).jpg',
-  '/gallery/gallery (8).jpg',
-  '/gallery/gallery (9).jpg',
+  '/gallery/gallery-1.jpg',
+  '/gallery/gallery-2.jpg',
+  '/gallery/gallery-3.jpg',
+  '/gallery/gallery-4.jpg',
+  '/gallery/gallery-5.jpg',
+  '/gallery/gallery-6.jpg',
+  '/gallery/gallery-7.jpg',
+  '/gallery/gallery-8.jpg',
+  '/gallery/gallery-9.jpg',
 ];
 
 const Gallery: React.FC = () => {
