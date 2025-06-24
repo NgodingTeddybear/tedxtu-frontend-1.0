@@ -154,7 +154,7 @@ interface Faq {
     answer: string;
 }
 
-const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: Faq; index: number; isExpanded: string | null; setExpanded: React.Dispatch<React.SetStateAction<string | null>> }) => {
+const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: Faq; index: number; isExpanded: string | undefined; setExpanded: React.Dispatch<React.SetStateAction<string | undefined>> }) => {
     const isEven = index % 2 === 0;
     const gradient = isEven
         ? 'bg-gradient-to-r from-[#951900] to-[#CE2406]'
@@ -315,7 +315,7 @@ export function FaqSection() {
                     <Accordion 
                         type="single" 
                         collapsible
-                        value={expanded}
+                        value={expanded || undefined}
                         onValueChange={setExpanded}
                     >
                         {faqData.map((faq, index) => (

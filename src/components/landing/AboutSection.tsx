@@ -322,8 +322,8 @@ export function AboutSection() {
             <div 
                 className="fixed w-12 h-12 rounded-full bg-gradient-to-r from-red-400 to-amber-400 opacity-20 pointer-events-none z-50 mix-blend-screen blur-md"
                 style={{ 
-                    left: `${mousePosition.x * window.innerWidth}px`, 
-                    top: `${mousePosition.y * window.innerHeight}px`,
+                    left: typeof window !== 'undefined' ? `${mousePosition.x * window.innerWidth}px` : '0px', 
+                    top: typeof window !== 'undefined' ? `${mousePosition.y * window.innerHeight}px` : '0px',
                     transform: 'translate(-50%, -50%)'
                 }}
             />

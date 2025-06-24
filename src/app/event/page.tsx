@@ -8,9 +8,9 @@ import Speakers from './Speakers';
 import { ElementsButton } from '@/components/ElementsButton';
 import { MapSection, SpeakersSection } from '@/components/landing';
 
-export function EventSection(): React.JSX.Element {
+const EventPage = () => {
     const [isVisible, setIsVisible] = React.useState(false);
-    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+    const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
 
     // Define decorative elements for floating images
     const decorElements = [
@@ -22,11 +22,9 @@ export function EventSection(): React.JSX.Element {
     ];
     
     React.useEffect(() => {
-        // Set isVisible to true after mount (can be enhanced for scroll/viewport logic)
         setIsVisible(true);
     }, []);
 
-    // FloatingElement component definition
     type FloatingElementProps = {
         src: string;
         style?: React.CSSProperties;
@@ -51,24 +49,18 @@ export function EventSection(): React.JSX.Element {
         </div>
     );
 
-    // Video Modal Component
     const VideoModal = () => {
         if (!isVideoModalOpen) return null;
-
         return (
             <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
                 <div className="relative w-full max-w-4xl mx-4">
-                    {/* Close button */}
                     <button
                         onClick={() => setIsVideoModalOpen(false)}
                         className="absolute -top-12 right-0 text-white hover:text-red-500 transition-colors duration-200 z-10"
                     >
                         <X size={32} />
                     </button>
-                    
-                    {/* Video container */}
                     <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                        {/* Try Google Drive embed first, fallback to regular video */}
                         <iframe
                             className="absolute top-0 left-0 w-full h-full rounded-lg"
                             src="https://drive.google.com/file/d/1Kt8TMQKAM338JNtf6U5W1xFCOmavjXu5/preview"
@@ -76,24 +68,16 @@ export function EventSection(): React.JSX.Element {
                             allowFullScreen
                             title="TEDxTelkomUniversity 2025 After Movie"
                         />
-                        
-                        {/* Fallback video element (hidden by default, can be used if iframe fails) */}
                         <video
                             className="absolute top-0 left-0 w-full h-full rounded-lg hidden"
                             controls
                             poster="/videos/after-movie-poster.jpg"
                         >
-                            {/* Direct Google Drive download link (may not work reliably) */}
                             <source src="https://drive.google.com/uc?export=download&id=1Kt8TMQKAM338JNtf6U5W1xFCOmavjXu5" type="video/mp4" />
-                            
-                            {/* Local video fallback */}
                             <source src="/videos/after-movie.mp4" type="video/mp4" />
-                            
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    
-                    {/* Video title */}
                     <div className="text-center mt-4">
                         <h3 className="text-white text-xl font-semibold">TEDxTelkomUniversity 2025 - After Movie</h3>
                         <p className="text-gray-300 text-sm mt-2">Weaving Ourselves Through "Tailoring Your Own Tapestry"</p>
@@ -111,7 +95,6 @@ export function EventSection(): React.JSX.Element {
                 </nav>
                 <div className='flex-1 flex items-center justify-center'>
                     <div className='container relative'>
-                        {/* Animated background */}
                         <div 
                             className={`
                                 absolute -top-24 md:-top-10 inset-0 -z-9 h-[90%] w-[90%] mx-auto
@@ -119,7 +102,7 @@ export function EventSection(): React.JSX.Element {
                                 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
                             `}
                             style={{
-                                transform: `translateY(${typeof window !== 'undefined' ? window.scrollY * 0.05 : 0}px)`,
+                                transform: 'translateY(0px)',
                             }}
                         >
                             <Image
@@ -129,8 +112,6 @@ export function EventSection(): React.JSX.Element {
                                 className='object-contain'
                             />
                         </div>
-
-                        {/* Floating particles */}
                         <div className="absolute inset-0 pointer-events-none">
                             {[...Array(8)].map((_, i) => (
                                 <div 
@@ -145,9 +126,7 @@ export function EventSection(): React.JSX.Element {
                                 />
                             ))}
                         </div>
-
                         <div className='mx-auto text-center'>
-                            {/* Animated heading */}
                             <h1 className={`
                                 scroll-m-20 font-bold text-2xl sm:text-3xl md:text-6xl lg:text-7xl xl:text-7xl relative 
                                 font-[family-name:var(--font-cinzel-decorative)]
@@ -198,8 +177,6 @@ export function EventSection(): React.JSX.Element {
                                     </span>
                                 </span>
                             </h1>
-
-                            {/* Floating decorative elements */}
                             {decorElements.map((elem, index) => (
                                 <FloatingElement
                                     key={index}
@@ -214,8 +191,6 @@ export function EventSection(): React.JSX.Element {
                                     delay={index}
                                 />
                             ))}
-
-                            {/* Animated tagline */}
                             <p className={`
                                 mt-30 text-xl font-[family-name:var(--font-raleway)] italic font-medium
                                 transition-all duration-1000 delay-500 ease-out
@@ -223,8 +198,6 @@ export function EventSection(): React.JSX.Element {
                             `}>
                                Weaving Ourselves Through "Tailoring Your Own Tapestry"
                             </p>
-
-                            {/* Animated buttons */}
                             <div className={`
                                 mt-8 flex justify-center gap-6
                                 transition-all duration-1000 delay-700 ease-out
@@ -244,8 +217,6 @@ export function EventSection(): React.JSX.Element {
                 </div>
                 <div className='absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent z-10' />
             </main>
-
-            {/* Video Modal */}
             <VideoModal />
             <MapSection/>
             <SpeakersSection/>
@@ -253,6 +224,6 @@ export function EventSection(): React.JSX.Element {
             <Gallery />
         </>
     );
-}
+};
 
-export default EventSection;
+export default EventPage;

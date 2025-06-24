@@ -53,6 +53,7 @@ export const ElementsButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const [windowWidth, setWindowWidth] = React.useState(0);
 
     React.useEffect(() => {
+      if (typeof window === 'undefined') return;
       setWindowWidth(window.innerWidth);
       const handleResize = () => setWindowWidth(window.innerWidth);
       window.addEventListener('resize', handleResize);

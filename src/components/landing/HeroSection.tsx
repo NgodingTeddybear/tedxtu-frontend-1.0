@@ -62,11 +62,10 @@ export function HeroSection() {
     // Handle initial animation on mount and scroll effects
     useEffect(() => {
         setIsVisible(true);
-        
+        if (typeof window === 'undefined') return;
         const handleScroll = () => {
             setScrollY(window.scrollY);
         };
-        
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
