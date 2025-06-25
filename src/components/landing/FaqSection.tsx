@@ -55,8 +55,8 @@ const FloatingElement = ({ src, style, size, delay = 0 }: FloatingElementProps) 
             className={`absolute ${size} z-10 hidden md:block`}
             style={style}
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-                opacity: 1, 
+            animate={{
+                opacity: 1,
                 scale: 1,
                 y: [0, -15, 0],
                 rotate: [0, delay % 2 === 0 ? 10 : -10, 0]
@@ -64,10 +64,10 @@ const FloatingElement = ({ src, style, size, delay = 0 }: FloatingElementProps) 
             transition={{
                 opacity: { duration: 0.5, delay: delay * 0.2 },
                 scale: { duration: 0.5, delay: delay * 0.2 },
-                y: { 
-                    repeat: Infinity, 
-                    duration: 5 + delay, 
-                    ease: "easeInOut" 
+                y: {
+                    repeat: Infinity,
+                    duration: 5 + delay,
+                    ease: "easeInOut"
                 },
                 rotate: {
                     repeat: Infinity,
@@ -84,15 +84,15 @@ const AnimatedHeading = () => {
     const controls = useAnimation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
-    
+
     useEffect(() => {
         if (isInView) {
             controls.start("visible");
         }
     }, [controls, isInView]);
-    
+
     return (
-        <motion.h2 
+        <motion.h2
             ref={ref}
             className="text-center mb-12 relative"
             initial="hidden"
@@ -106,12 +106,12 @@ const AnimatedHeading = () => {
                 }
             }}
         >
-            <motion.span 
+            <motion.span
                 className="text-white text-4xl md:text-5xl font-bold block"
                 variants={{
                     hidden: { opacity: 0, y: 20 },
-                    visible: { 
-                        opacity: 1, 
+                    visible: {
+                        opacity: 1,
                         y: 0,
                         transition: { duration: 0.5 }
                     }
@@ -119,12 +119,12 @@ const AnimatedHeading = () => {
             >
                 Frequently
             </motion.span>
-            <motion.span 
+            <motion.span
                 className="text-white text-4xl md:text-5xl font-bold block"
                 variants={{
                     hidden: { opacity: 0, y: 20 },
-                    visible: { 
-                        opacity: 1, 
+                    visible: {
+                        opacity: 1,
                         y: 0,
                         transition: { duration: 0.5, delay: 0.2 }
                     }
@@ -135,7 +135,7 @@ const AnimatedHeading = () => {
                 </span>{' '}
                 Question
             </motion.span>
-            
+
             {/* Animated underline */}
             <motion.div
                 className="h-1 w-24 bg-gradient-to-r from-[#951900] to-[#CE2406] mx-auto mt-4"
@@ -163,17 +163,17 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
         ? '/faq/gold.png'
         : '/faq/red.png';
     const textColor = isEven ? 'text-black' : 'text-white';
-    
+
     const itemRef = useRef(null);
     const isInView = useInView(itemRef, { once: true, amount: 0.3 });
     const controls = useAnimation();
-    
+
     useEffect(() => {
         if (isInView) {
             controls.start("visible");
         }
     }, [controls, isInView]);
-    
+
     return (
         <motion.div
             ref={itemRef}
@@ -181,11 +181,11 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
             animate={controls}
             variants={{
                 hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
-                visible: { 
-                    opacity: 1, 
+                visible: {
+                    opacity: 1,
                     x: 0,
-                    transition: { 
-                        duration: 0.6, 
+                    transition: {
+                        duration: 0.6,
                         delay: index * 0.1,
                         ease: "easeOut"
                     }
@@ -200,10 +200,10 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
             >
                 <motion.div
                     className={`p-[3px] rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] ${gradient}`}
-                    whileHover={{ 
-                        boxShadow: isEven 
-                            ? "0 0 15px rgba(255, 193, 7, 0.5)" 
-                            : "0 0 15px rgba(220, 53, 69, 0.5)" 
+                    whileHover={{
+                        boxShadow: isEven
+                            ? "0 0 15px rgba(255, 193, 7, 0.5)"
+                            : "0 0 15px rgba(220, 53, 69, 0.5)"
                     }}
                 >
                     <motion.div
@@ -214,8 +214,8 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
                             backgroundRepeat: 'no-repeat',
                         }}
                         animate={{
-                            boxShadow: isExpanded === `item-${index}` 
-                                ? "0 10px 25px rgba(0, 0, 0, 0.8)" 
+                            boxShadow: isExpanded === `item-${index}`
+                                ? "0 10px 25px rgba(0, 0, 0, 0.8)"
                                 : "0 4px 13.1px rgba(0, 0, 0, 0.6)"
                         }}
                     >
@@ -227,10 +227,10 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
                                 {faq.question}
                             </span>
                         </AccordionTrigger>
-                        <AccordionContent className={`px-6 pb-4 ${textColor}`}>
+                        <AccordionContent className={`font-[raleway] px-6 pb-4 ${textColor}`}>
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
-                                animate={{ 
+                                animate={{
                                     opacity: isExpanded === `item-${index}` ? 1 : 0,
                                     y: isExpanded === `item-${index}` ? 0 : -10
                                 }}
@@ -249,9 +249,9 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
 export function FaqSection() {
     const containerRef = useRef(null);
     const [expanded, setExpanded] = React.useState<string | undefined>(undefined);
-    
+
     return (
-        <motion.section 
+        <motion.section
             className="min-h-screen flex justify-center items-center px-4 md:px-6 lg:px-8 py-24 relative overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -260,7 +260,7 @@ export function FaqSection() {
         >
             {/* Background particles */}
             <div className="absolute inset-0 z-0">
-                <motion.div 
+                <motion.div
                     className="absolute top-0 left-0 w-full h-full"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.5 }}
@@ -310,16 +310,16 @@ export function FaqSection() {
             <div className="container relative z-20">
                 {/* Animated heading */}
                 <AnimatedHeading />
-                
+
                 <div className="w-full mx-auto">
-                    <Accordion 
-                        type="single" 
+                    <Accordion
+                        type="single"
                         collapsible
                         value={expanded || undefined}
                         onValueChange={setExpanded}
                     >
                         {faqData.map((faq, index) => (
-                            <EnhancedAccordionItem 
+                            <EnhancedAccordionItem
                                 key={index}
                                 faq={faq}
                                 index={index}
