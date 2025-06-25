@@ -42,7 +42,7 @@ const merch = [
     {
         name: 'Bobbin\'s Kit',
         price: 'Rp78.000',
-        img: '/merch/bobbinsKit.png'
+        img: '/merch/bobbinskit.png'
     },
     {
         name: 'Stitches Kit',
