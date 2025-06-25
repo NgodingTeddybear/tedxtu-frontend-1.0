@@ -30,11 +30,12 @@ export default function Navbar() {
                                 height={30}
                                 quality={100}
                             />
-                            <span className='font-bold text-lg'>TEDxTelkom University</span>
                         </Link>
                         <Link href='/' className='w-full py-2 text-lg font-semibold'>Home</Link>
                         <Link href='/#about' className='w-full py-2 text-lg font-semibold'>About Us</Link>
                         <Link href='/event' className='w-full py-2 text-lg font-semibold' prefetch={false}>Event</Link>
+                        <Link href='/recruitment' className='w-full py-2 text-lg font-semibold' prefetch={false}>Recruitment</Link>
+                        <Link href='/merch' className='w-full py-2 text-lg font-semibold' prefetch={false}>Merch</Link>
                     </div>
                 </SheetContent>
             </Sheet>
@@ -48,27 +49,39 @@ export default function Navbar() {
                 />
                 <span className='sr-only'>TEDxTelkom University</span>
             </Link>
-            <nav className='ml-auto hidden lg:flex gap-8'>
+            <nav className='ml-auto hidden lg:flex gap-6'>
                 <Link
                     href={"/"}
-                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
+                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
                 >
                     Home
                 </Link>
                 <Link
                     href={"/#about"}
-                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
+                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
                 >
                     About Us
                 </Link>
                 <Link
                     href='/event'
-                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-xl font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
+                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
                     prefetch={false}
                 >
-                    <button>
-                        Event
-                    </button>
+                    Event
+                </Link>
+                <Link
+                    href='/recruitment'
+                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
+                    prefetch={false}
+                >
+                    Recruitment
+                </Link>
+                <Link
+                    href='/merch'
+                    className='group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-lg font-bold transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:text-gray-50 dark:focus:text-gray-50'
+                    prefetch={false}
+                >
+                    Merch
                 </Link>
             </nav>
         </header>

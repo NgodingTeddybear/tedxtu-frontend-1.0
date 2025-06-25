@@ -91,9 +91,9 @@ export default function Recuitment() {
             </nav>
 
             {/* hero */}
-            <div className='relative flex flex-col justify-center items-center gap-24 w-full h-screen [background-image:url("../../public/recruitment-bg.png")] bg-cover'>
+            <div className='relative flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 w-full h-screen bg-[url("/recruitment-bg.png")] bg-cover bg-center'>
+                {/* Decorative elements */}
                 <motion.div
-                    // initial={{ rotate: 10 }}
                     animate={{
                         y: ['0%', '-20%', '0%'],
                         rotate: ['10deg', '0deg', '10deg'],
@@ -103,55 +103,55 @@ export default function Recuitment() {
                         duration: 5,
                         ease: 'easeInOut',
                     }}
-                    className='absolute -bottom-10 left-[-25px] z-20'
+                    className='absolute -bottom-10 left-[-25px] z-20 hidden sm:block'
                 >
                     <Image
                         alt='daisy'
                         src={'/recruitment-flower/daisy.svg'}
                         width={191}
                         height={197}
+                        className='w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
                     />
                 </motion.div>
+                
                 <Image
                     alt='flower collection'
                     src={'/recruitment-flower/flower-collection.png'}
                     width={116}
                     height={73}
-                    className='absolute right-[44%] top-[calc(25%+40px)] m-auto'
+                    className='absolute right-[10%] sm:right-[20%] md:right-[30%] lg:right-[40%] top-[20%] sm:top-[25%] m-auto w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-16 lg:w-28 lg:h-18'
                 />
-                {/* <Image
-                    alt='flower small'
-                    src={'/recruitment-flower/flower-small.svg'}
-                    width={37}
-                    height={29}
-                    className='absolute top-1/4 left-[10%]'
-                /> */}
+                
                 <motion.div
                     animate={{ scale: [0.5, 1, 0.9, 1, 0.9, 1, 0.5] }}
                     transition={{ duration: 10, repeat: Infinity }}
-                    className='absolute top-[-10px] right-[-25px]'
+                    className='absolute top-[-10px] right-[-25px] hidden sm:block'
                 >
                     <Image
                         alt='marigold'
                         src={'/recruitment-flower/marigold.png'}
                         width={188}
                         height={148}
-                        className='rotate-[-120deg]'
+                        className='rotate-[-120deg] w-24 h-20 sm:w-32 sm:h-24 md:w-40 md:h-32 lg:w-48 lg:h-36'
                     />
                 </motion.div>
-                <div className='flex flex-col justify-center items-center gap-2 z-10'>
-                    <h1 className='text-5xl font-black text-center'>
+                
+                {/* Main content */}
+                <div className='flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 z-10 text-center max-w-4xl mx-auto'>
+                    <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-center leading-tight'>
                         Yes, you are the next generation
                     </h1>
-                    <p className='font-[raleway] text-center text-2xl max-w-[800px]'>
+                    <p className='font-[raleway] text-center text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4 leading-relaxed'>
                         Join us to be part of the biggest student organization in Indonesia.
-                        <br />
+                        <br className='hidden sm:block' />
                         We are looking for the best talents to join our team.
                     </p>
                 </div>
-                <div className='flex gap-8'>
-                    <ElementsButton>Join us</ElementsButton>
-                    <ElementsButton variant={'gold'}>More info</ElementsButton>
+                
+                {/* CTA Buttons */}
+                <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 sm:mt-12 z-10 w-full max-w-md mx-auto px-4'>
+                    <ElementsButton className='w-full sm:w-auto'>Join us</ElementsButton>
+                    <ElementsButton variant={'gold'} className='w-full sm:w-auto'>More info</ElementsButton>
                 </div>
             </div>
 

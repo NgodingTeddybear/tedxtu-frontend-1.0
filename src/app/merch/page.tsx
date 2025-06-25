@@ -56,46 +56,8 @@ const merch = [
 ];
 
 export default function Merch() {
-    const countdownRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
-
-        const countdownElement = countdownRef.current;
-        if (!countdownElement) return;
-
-        const handleScroll = () => {
-            const scrollThreshold = 100;
-
-            if (window.scrollY > scrollThreshold) {
-                countdownElement.style.position = 'fixed';
-                countdownElement.style.top = '0';
-                countdownElement.style.left = '0';
-                countdownElement.style.right = '0';
-                countdownElement.style.zIndex = '50';
-                countdownElement.style.opacity = '1';
-            } else {
-                countdownElement.style.position = 'relative';
-                countdownElement.style.opacity = '1';
-            }
-        };
-
-        // Set initial state (hidden)
-        countdownElement.style.position = 'relative';
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
         <main className='bg-[url(/merch-background.png)] bg-cover min-h-screen pb-10'>
-            <div
-                ref={countdownRef}
-                className='bg-[url(/countdown-background.png)] bg-no-repeat bg-cover flex items-center justify-center h-[77px] w-full transition-all duration-300'
-            >
-                <Countdown />
-            </div>
-
             <nav className='w-full'>
                 <Navbar />
             </nav>
