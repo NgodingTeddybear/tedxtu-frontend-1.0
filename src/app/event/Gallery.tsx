@@ -160,14 +160,13 @@ const Gallery: React.FC = () => {
 
         {/* Controls */}
         <div className="flex justify-center items-center mt-12 gap-8">
-          {/* Auto-play toggle */}
-          {/* <button
-            onClick={() => setIsAutoPlay(!isAutoPlay)}
-            className="flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-6 py-3 rounded-full transition-all duration-300 border border-white/20"
+          {/* Auto-play toggle as button */}
+          <a
+            href="https://flic.kr/s/aHBqjCg6hx"
+            className="flex items-center gap-2 bg-[#951900] hover:bg-[#b42000] text-white px-6 py-3 rounded-full transition-all duration-300 border border-white/20 backdrop-blur-md"
           >
-            {isAutoPlay ? <Pause size={20} /> : <Play size={20} />}
-            <span>{isAutoPlay ? 'Pause' : 'Play'}</span>
-          </button> */}
+            <p> Full Documentation</p>
+          </a>
 
           {/* Dots Indicator */}
           <div className="flex gap-3">
@@ -196,6 +195,7 @@ const Gallery: React.FC = () => {
           </div>
         </div>
       </div>
+      
 
       {/* Full-size Modal */}
       {selectedImage !== null && (

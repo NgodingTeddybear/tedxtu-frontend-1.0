@@ -106,7 +106,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
           <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-1000 ${isHovered ? 'translate-x-full' : '-translate-x-full'}`}></div>
           
           <div className="relative z-10 w-full">
-            <p className="text-gray-200 leading-relaxed text-lg font-medium tracking-wide text-justify">
+            <p className="font-raleway text-white-200 leading-relaxed text-lg font-medium tracking-wide text-justify">
               {description}
             </p>
             
