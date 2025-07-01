@@ -19,7 +19,9 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-gray-400 text-sm font-[family-name:var(--font-raleway)]">
-                            Ideas worth spreading at Telkom University
+                            Ideas change people.
+                            <br />
+                            People change the world.
                         </p>
                     </div>
 
@@ -66,12 +68,6 @@ export default function Footer() {
                                     Bandung, Indonesia
                                 </p>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <Mail className="h-5 w-5 text-red-500 flex-shrink-0" />
-                                <a href="mailto:tedx@telkomuniversity.ac.id" className="text-gray-400 text-sm hover:text-red-500 transition-colors font-[family-name:var(--font-raleway)]">
-                                    tedx@telkomuniversity.ac.id
-                                </a>
-                            </div>
                         </div>
                     </div>
 
@@ -79,15 +75,6 @@ export default function Footer() {
                     <div className="md:col-span-1">
                         <h3 className="text-white font-bold text-lg mb-4">Follow Us</h3>
                         <div className="flex gap-4">
-                            <a
-                                href="https://facebook.com/tedxtelkomuniversity"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-red-500 transition-colors"
-                                aria-label="Facebook"
-                            >
-                                <Facebook className="h-6 w-6" />
-                            </a>
                             <a
                                 href="https://instagram.com/tedxtelkomuniversity"
                                 target="_blank"
@@ -98,16 +85,7 @@ export default function Footer() {
                                 <Instagram className="h-6 w-6" />
                             </a>
                             <a
-                                href="https://twitter.com/tedxtelkomu"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-red-500 transition-colors"
-                                aria-label="Twitter"
-                            >
-                                <Twitter className="h-6 w-6" />
-                            </a>
-                            <a
-                                href="https://linkedin.com/company/tedxtelkomuniversity"
+                                href="https://www.linkedin.com/company/tedxtelkom-university"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 hover:text-red-500 transition-colors"
