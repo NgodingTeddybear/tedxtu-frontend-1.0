@@ -6,12 +6,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center font-extrabold transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 relative w-36 sm:w-40 md:w-44 h-12 sm:h-14 md:h-16 rounded-full overflow-hidden text-center text-wrap border-[4px] border-[#A6A6A6] bg-cover bg-center',
+  'inline-flex items-center justify-center font-extrabold transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 relative w-36 sm:w-40 md:w-44 h-12 sm:h-14 md:h-16 rounded-full overflow-hidden text-center text-wrap bg-cover bg-center',
   {
     variants: {
         variant: {
           red: "bg-[url('/buttons/red-theme.png')] bg-cover text-white",
-          gold: "bg-[url('/buttons/green-theme.png')] bg-[length:100%_100%] text-[#A66D03] bg-no-repeat bg-center hover:brightness-110 border border-4 bg-clip-padding",
+          gold: "bg-[url('/buttons/green-theme.png')] bg-[length:100%_100%] text-[#A66D03] bg-no-repeat bg-center hover:brightness-110 bg-clip-padding",
         },
         size: {
           default: 'h-12 px-6 text-sm',
