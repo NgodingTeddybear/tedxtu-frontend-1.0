@@ -9,9 +9,11 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Footer from '@/components/landing/FooterSection';
+import BackToTopButton from '@/components/BackToTopButton';
 
 const DIVISIONS = [
-    
+
     {
         name: 'VCL',
         description:
@@ -113,7 +115,7 @@ export default function Recuitment() {
                         className='w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
                     />
                 </motion.div>
-                
+
                 <Image
                     alt='flower collection'
                     src={'/recruitment-flower/flower-collection.png'}
@@ -121,7 +123,7 @@ export default function Recuitment() {
                     height={73}
                     className='absolute right-[10%] sm:right-[20%] md:right-[30%] lg:right-[40%] top-[20%] sm:top-[25%] m-auto w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-16 lg:w-28 lg:h-18'
                 />
-                
+
                 <motion.div
                     animate={{ scale: [0.5, 1, 0.9, 1, 0.9, 1, 0.5] }}
                     transition={{ duration: 10, repeat: Infinity }}
@@ -135,7 +137,7 @@ export default function Recuitment() {
                         className='rotate-[-120deg] w-24 h-20 sm:w-32 sm:h-24 md:w-40 md:h-32 lg:w-48 lg:h-36'
                     />
                 </motion.div>
-                
+
                 {/* Main content */}
                 <div className='flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 z-10 text-center max-w-4xl mx-auto'>
                     <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-center leading-tight'>
@@ -147,7 +149,7 @@ export default function Recuitment() {
                         We are looking for the best talents to join our team.
                     </p>
                 </div>
-                
+
                 {/* CTA Buttons */}
                 <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 sm:mt-12 z-10 w-full max-w-md mx-auto px-4'>
                     <ElementsButton className='w-full sm:w-auto'>Join us</ElementsButton>
@@ -227,6 +229,8 @@ export default function Recuitment() {
                     ))}
                 </Accordion>
             </div> */}
+            <Footer />
+            <BackToTopButton />
         </main>
     );
 }

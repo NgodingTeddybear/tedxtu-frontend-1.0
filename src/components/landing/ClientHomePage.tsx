@@ -6,6 +6,9 @@ import Countdown from '@/components/countdown';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from './FooterSection';
+import Navbar from '../Navbar';
+import BackToTopButton from '../BackToTopButton';
 
 export function ClientHomePage() {
     const countdownRef = useRef<HTMLDivElement>(null);
@@ -66,6 +69,7 @@ export function ClientHomePage() {
             </div> */}
 
             <div>
+                <Navbar />
                 <div
                     className='absolute -right-56 h-[30%] w-[30%] z-10'
                 />
@@ -74,6 +78,8 @@ export function ClientHomePage() {
                 <VisionSection />
                 <AboutSection />
                 <FaqSection />
+                <Footer />
+                <BackToTopButton />
             </div>
         </div>
     );

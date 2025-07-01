@@ -7,6 +7,8 @@ import Gallery from './Gallery';
 import Speakers from './Speakers';
 import { ElementsButton } from '@/components/ElementsButton';
 import { MapSection, SpeakersSection } from '@/components/landing';
+import Footer from '@/components/landing/FooterSection';
+import BackToTopButton from '@/components/BackToTopButton';
 
 const EventPage = () => {
     const [isVisible, setIsVisible] = React.useState(false);
@@ -19,7 +21,7 @@ const EventPage = () => {
         { src: '/hero/v3.png', bottom: '15%', left: '15%', size: { base: 20, sm: 25, md: 30, lg: 35 } },
         { src: '/hero/v4.png', bottom: '10%', right: '20%', size: { base: 25, sm: 30, md: 40, lg: 45 } },
     ];
-    
+
     React.useEffect(() => {
         setIsVisible(true);
     }, []);
@@ -27,7 +29,7 @@ const EventPage = () => {
     // Helper function to get responsive size
     const getResponsiveSize = (sizeObj: { base: number; sm: number; md: number; lg: number }) => {
         if (typeof window === 'undefined') return sizeObj.base;
-        
+
         const width = window.innerWidth;
         if (width >= 1024) return sizeObj.lg;
         if (width >= 768) return sizeObj.md;
@@ -119,12 +121,10 @@ const EventPage = () => {
     return (
         <>
             <main id='hero' className='bg-black min-h-screen flex flex-col overflow-hidden'>
-                <nav className='w-full z-10'>
-                    <Navbar />
-                </nav>
+                <Navbar />
                 <div className='flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8'>
                     <div className='container relative max-w-7xl'>
-                        <div 
+                        <div
                             className={`
                                 absolute inset-0 -z-9 h-[70%] w-[70%] sm:h-[80%] sm:w-[80%] md:h-[85%] md:w-[85%] lg:h-[90%] lg:w-[90%] mx-auto
                                 transition-all duration-1000 ease-in-out
@@ -143,7 +143,7 @@ const EventPage = () => {
                         </div>
                         <div className="absolute inset-0 pointer-events-none">
                             {[...Array(8)].map((_, i) => (
-                                <div 
+                                <div
                                     key={i}
                                     className="absolute w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-amber-200/30 animate-float"
                                     style={{
@@ -202,8 +202,8 @@ const EventPage = () => {
                                     </span>
                                     <span className="relative whitespace-nowrap">
                                         2025
-                                        <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-0.5 sm:h-1 bg-amber-500 transform scale-x-0 origin-left transition-transform duration-1000 delay-1000" 
-                                            />
+                                        <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-0.5 sm:h-1 bg-amber-500 transform scale-x-0 origin-left transition-transform duration-1000 delay-1000"
+                                        />
                                     </span>
                                 </span>
                             </h1>
@@ -226,15 +226,15 @@ const EventPage = () => {
                                 transition-all duration-1000 delay-500 ease-out px-4 sm:px-0
                                 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                             `}>
-                               Weaving Ourselves Through "Tailoring Your Own Tapestry"
+                                Weaving Ourselves Through "Tailoring Your Own Tapestry"
                             </p>
                             <div className={`
                                 mt-6 sm:mt-8 flex justify-center gap-6
                                 transition-all duration-1000 delay-700 ease-out
                                 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                             `}>
-                                <ElementsButton 
-                                    variant='red' 
+                                <ElementsButton
+                                    variant='red'
                                     className="whitespace-nowrap w-full sm:w-auto sm:min-w-[280px] hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2 px-4 sm:px-6"
                                     onClick={() => setIsVideoModalOpen(true)}
                                 >
@@ -248,10 +248,12 @@ const EventPage = () => {
                 <div className='absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black to-transparent z-10' />
             </main>
             <VideoModal />
-            <MapSection/>
-            <SpeakersSection/>
+            <MapSection />
+            <SpeakersSection />
             <Speakers />
             <Gallery />
+            <Footer />
+            <BackToTopButton />
         </>
     );
 };

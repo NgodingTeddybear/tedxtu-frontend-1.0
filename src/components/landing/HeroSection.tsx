@@ -33,40 +33,40 @@ interface FloatingElementProps {
 
 // Decorative elements with responsive sizes
 const decorElements: DecorElement[] = [
-    { 
-        src: "/hero/v1.png", 
-        top: "5%", 
-        left: "2%", 
+    {
+        src: "/hero/v1.png",
+        top: "5%",
+        left: "2%",
         size: {
             base: "w-8 h-8",
             md: "w-12 h-12",
             lg: "w-16 h-16"
         }
     },
-    { 
-        src: "/hero/v3.png", 
-        top: "5%", 
-        right: "2%", 
+    {
+        src: "/hero/v3.png",
+        top: "5%",
+        right: "2%",
         size: {
             base: "w-10 h-10",
             md: "w-16 h-16",
             lg: "w-20 h-20"
         }
     },
-    { 
-        src: "/hero/v6.png", 
-        bottom: "25%", 
-        left: "3%", 
+    {
+        src: "/hero/v6.png",
+        bottom: "25%",
+        left: "3%",
         size: {
             base: "w-8 h-8",
             md: "w-10 h-10",
             lg: "w-14 h-14"
         }
     },
-    { 
-        src: "/hero/v7.png", 
-        bottom: "25%", 
-        right: "3%", 
+    {
+        src: "/hero/v7.png",
+        bottom: "25%",
+        right: "3%",
         size: {
             base: "w-8 h-8",
             md: "w-12 h-12",
@@ -83,10 +83,10 @@ const FloatingElement: React.FC<FloatingElementProps> = ({ src, style, size, del
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
         };
-        
+
         // Set initial width
         handleResize();
-        
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -105,8 +105,8 @@ const FloatingElement: React.FC<FloatingElementProps> = ({ src, style, size, del
             className={`absolute ${getSizeClass()} z-10 hidden sm:block`}
             style={style}
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-                opacity: 1, 
+            animate={{
+                opacity: 1,
                 scale: 1,
                 y: [0, -15, 0],
                 rotate: [0, delay % 2 === 0 ? 10 : -10, 0]
@@ -114,10 +114,10 @@ const FloatingElement: React.FC<FloatingElementProps> = ({ src, style, size, del
             transition={{
                 opacity: { duration: 0.5, delay: delay * 0.2 },
                 scale: { duration: 0.5, delay: delay * 0.2 },
-                y: { 
-                    repeat: Infinity, 
-                    duration: 5 + delay, 
-                    ease: "easeInOut" 
+                y: {
+                    repeat: Infinity,
+                    duration: 5 + delay,
+                    ease: "easeInOut"
                 },
                 rotate: {
                     repeat: Infinity,
@@ -137,24 +137,21 @@ export function HeroSection() {
     useEffect(() => {
         setIsVisible(true);
         if (typeof window === 'undefined') return;
-        
+
         const handleScroll = () => {
             setScrollY(window.scrollY);
         };
-        
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <main id='hero' className='min-h-screen flex flex-col overflow-hidden'>
-            <nav className='w-full z-10'>
-                <Navbar />
-            </nav>
+        <main id='hero' className='min-h-screen flex flex-col overflow-hidden pt-20'>
             <div className='flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8'>
                 <div className='container relative max-w-7xl'>
                     {/* Animated background */}
-                    <div 
+                    <div
                         className={`
                             absolute inset-0 -z-9 h-[70%] w-[70%] sm:h-[80%] sm:w-[80%] md:h-[85%] md:w-[85%] lg:h-[90%] lg:w-[90%] mx-auto
                             transition-all duration-1000 ease-in-out
@@ -177,7 +174,7 @@ export function HeroSection() {
                     {/* Floating particles */}
                     <div className="absolute inset-0 pointer-events-none">
                         {[...Array(8)].map((_, i) => (
-                            <div 
+                            <div
                                 key={i}
                                 className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 rounded-full bg-amber-200/30 animate-float"
                                 style={{
@@ -238,7 +235,7 @@ export function HeroSection() {
                                 </span>
                                 <span className="relative whitespace-nowrap">
                                     Tapestry
-                                    <span 
+                                    <span
                                         className={`
                                             absolute -bottom-1 sm:-bottom-2 left-0 w-full h-0.5 sm:h-1 bg-amber-500 
                                             origin-left transition-transform duration-1000 delay-1000
@@ -281,16 +278,16 @@ export function HeroSection() {
                             transition-all duration-1000 delay-700 ease-out
                             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
                         `}>
-                            <Link href="https://www.instagram.com/tedxtelkomuniversity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="> 
-                                <ElementsButton 
-                                    variant='red' 
+                            <Link href="https://www.instagram.com/tedxtelkomuniversity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                                <ElementsButton
+                                    variant='red'
                                     className="w-full sm:w-auto whitespace-nowrap min-w-full sm:min-w-[250px] md:min-w-[280px] hover:scale-105 transition-transform duration-300 text-sm sm:text-base"
                                 >
-                                    Follow us on Instagram  
+                                    Follow us on Instagram
                                 </ElementsButton>
                             </Link>
                             <Link href="/recruitment">
-                                <ElementsButton 
+                                <ElementsButton
                                     variant='gold'
                                     className="w-full sm:w-auto hover:scale-105 transition-transform duration-300 text-sm sm:text-base"
                                 >

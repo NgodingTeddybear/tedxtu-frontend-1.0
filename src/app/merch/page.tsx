@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Image from 'next/image';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import Footer from '@/components/landing/FooterSection';
 
 const merch = [
     {
@@ -98,7 +99,7 @@ export default function Merch() {
 
     useEffect(() => {
         setIsVisible(true);
-        
+
         const handleScroll = () => {
             setScrollY(window.scrollY);
         };
@@ -110,7 +111,7 @@ export default function Merch() {
     }, []);
 
     return (
-        <main className='min-h-screen bg-[url(/merch-background.png)] bg-cover bg-center relative overflow-hidden'>
+        <main className='min-h-screen bg-[url(/merch-background.png)] bg-cover bg-center relative overflow-hidden pt-20'>
             {/* Darker background overlay with shadow */}
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -121,7 +122,7 @@ export default function Merch() {
             {/* Floating particles */}
             <div className="absolute inset-0 pointer-events-none">
                 {[...Array(12)].map((_, i) => (
-                    <motion.div 
+                    <motion.div
                         key={i}
                         className="absolute w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-amber-200/30 animate-float"
                         style={{
@@ -162,7 +163,7 @@ export default function Merch() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <motion.h2 
+                    <motion.h2
                         className='font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl relative'
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -170,7 +171,7 @@ export default function Merch() {
                     >
                         <span className="relative">
                             Our MERCHANDISE
-                            <motion.span 
+                            <motion.span
                                 className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-amber-400 to-red-500"
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
@@ -179,8 +180,8 @@ export default function Merch() {
                             />
                         </span>
                     </motion.h2>
-                    
-                    <motion.p 
+
+                    <motion.p
                         className='mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto'
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -197,12 +198,12 @@ export default function Merch() {
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ 
-                                duration: 0.6, 
+                            transition={{
+                                duration: 0.6,
                                 delay: 0.8 + (index * 0.1),
                                 ease: "easeOut"
                             }}
-                            whileHover={{ 
+                            whileHover={{
                                 scale: 1.02,
                                 y: -8,
                                 transition: { duration: 0.3, ease: "easeOut" }
@@ -212,7 +213,7 @@ export default function Merch() {
                             <Card className='relative w-[280px] h-[460px] border-0 bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-amber-500/20 transition-all duration-500'>
                                 {/* Card glow effect */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 via-transparent to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-                                
+
                                 {/* Card border glow */}
                                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-amber-400/30 via-transparent to-red-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[1px]">
                                     <div className="absolute inset-0 rounded-3xl bg-black/80" />
@@ -253,9 +254,9 @@ export default function Merch() {
                                         <div className='relative overflow-hidden rounded-2xl bg-gradient-to-r from-gray-800/80 to-gray-600/80 p-[2px] shadow-lg group-hover:shadow-amber-500/25 transition-shadow duration-300'>
                                             <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 via-red-500/20 to-amber-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             <Button className='relative w-full h-12 bg-gradient-to-r from-white to-gray-100 text-red-600 font-black text-sm rounded-2xl hover:from-amber-50 hover:to-white transition-all duration-300 transform group-hover:scale-[1.02] shadow-lg'>
-                                                <a 
-                                                    href="https://www.instagram.com/p/DITpgTwzoO-/?img_index=1" 
-                                                    target='_blank' 
+                                                <a
+                                                    href="https://www.instagram.com/p/DITpgTwzoO-/?img_index=1"
+                                                    target='_blank'
                                                     rel="noopener noreferrer"
                                                     className="w-full h-full flex items-center justify-center"
                                                 >

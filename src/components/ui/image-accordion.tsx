@@ -180,15 +180,15 @@ const ImageAccordion = ({
                   display: 'block'
                 }}
               />
-              
 
-              
+
+
 
               {/* Content Overlay */}
               <div className="absolute inset-0 p-6 mt-32">
                 <div
                   ref={contentRef}
-                  className="text-white font-[family-name:var(--font-raleway)]"
+                  className="text-white text-justify font-[family-name:var(--font-raleway)]"
                 >
                   {children}
                 </div>

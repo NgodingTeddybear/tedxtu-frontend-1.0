@@ -26,7 +26,7 @@ export function AboutSection() {
     });
 
     const [scrollY, setScrollY] = useState(0);
-    
+
     // Refs for decorative elements
     const decorRef1 = useRef<HTMLDivElement>(null);
     const decorRef2 = useRef<HTMLDivElement>(null);
@@ -57,7 +57,7 @@ export function AboutSection() {
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('mousemove', handleMouseMove);
-        
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('mousemove', handleMouseMove);
@@ -67,8 +67,8 @@ export function AboutSection() {
     // Animation variants for framer-motion
     const fadeInUp = {
         hidden: { opacity: 0, y: 30 },
-        visible: { 
-            opacity: 1, 
+        visible: {
+            opacity: 1,
             y: 0,
             transition: { duration: 0.8, ease: "easeOut" }
         }
@@ -85,7 +85,7 @@ export function AboutSection() {
     };
 
 
-    
+
     return (
         <section
             id='about'
@@ -93,7 +93,7 @@ export function AboutSection() {
             ref={mainRef}
         >
             {/* Decorative floating elements */}
-            <div 
+            <div
                 ref={decorRef1}
                 className="absolute top-20 -left-20 w-72 h-72 rounded-full bg-red-500/5 blur-3xl animate-float-slow"
                 style={{
@@ -101,8 +101,8 @@ export function AboutSection() {
                     transform: `translateY(${scrollY * 0.02}px)`
                 }}
             />
-            
-            <div 
+
+            <div
                 ref={decorRef2}
                 className="absolute -bottom-40 right-20 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl animate-float-slow"
                 style={{
@@ -110,8 +110,8 @@ export function AboutSection() {
                     transform: `translateY(${-scrollY * 0.03}px)`
                 }}
             />
-            
-            <div 
+
+            <div
                 ref={decorRef3}
                 className="absolute top-1/2 -right-32 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl animate-float-slow"
                 style={{
@@ -124,7 +124,7 @@ export function AboutSection() {
             {mainInView && (
                 <>
                     {[...Array(10)].map((_, i) => (
-                        <div 
+                        <div
                             key={i}
                             className="absolute w-1 h-1 rounded-full bg-amber-400/40 animate-float"
                             style={{
@@ -140,7 +140,7 @@ export function AboutSection() {
 
             <div className='container flex flex-col items-center relative z-10'>
                 {/* Animated heading */}
-                <motion.h2 
+                <motion.h2
                     className='inline-flex items-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl relative'
                     initial={{ opacity: 0, y: 20 }}
                     animate={mainInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -148,7 +148,7 @@ export function AboutSection() {
                 >
                     <span className="relative">
                         About Us
-                        <motion.span 
+                        <motion.span
                             className="absolute -bottom-2 left-0 w-full h-1 bg-red-500"
                             initial={{ scaleX: 0 }}
                             animate={mainInView ? { scaleX: 1 } : { scaleX: 0 }}
@@ -161,7 +161,7 @@ export function AboutSection() {
                 {/* Full width accordion at the top with staggered animation */}
 
                 {/* Two-column grid layout for additional accordions */}
-                <motion.div 
+                <motion.div
                     className='grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-6'
                     variants={staggerContainer}
                     initial="hidden"
@@ -169,25 +169,25 @@ export function AboutSection() {
                 >
                     {/* Left Column */}
                     <div className='flex flex-col space-y-6'>
-                        <motion.div 
-                            variants={fadeInUp} 
+                        <motion.div
+                            variants={fadeInUp}
                             className="transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl"
                             ref={accordionRefs.execProd.ref}
                         >
                             <ImageAccordion
-                                title="Licensse."
+                                title="Licensee."
                                 closedHeaderImage={staffClosedBg.src}
                                 openHeaderImage={staffOpenBg.src}
                                 contentImage={contentBg.src}
                                 className="accordion-animate"
                             >
                                 <p className="mb-4">
-                                Licensee is responsible for obtaining and maintaining the TEDx licensee, leading event planning, managing the team, curating speakers, ensuring content quality, and fostering a lasting community. All while complying with TED guidelines to deliver an impactful experience.
+                                    Licensee is responsible for obtaining and maintaining the TEDx licensee, leading event planning, managing the team, curating speakers, ensuring content quality, and fostering a lasting community. All while complying with TED guidelines to deliver an impactful experience.
                                 </p>
                             </ImageAccordion>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             variants={fadeInUp}
                             className="transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl"
                             ref={accordionRefs.marketing.ref}
@@ -209,7 +209,7 @@ export function AboutSection() {
                                 </p>
                             </ImageAccordion>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                             variants={fadeInUp}
                             className="transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl"
                             ref={accordionRefs.pno.ref}
@@ -232,7 +232,7 @@ export function AboutSection() {
                                 <p className="mb-4">
                                     Handle payment processes for vendors and sponsors, track and record ticket sales and associated costs, and organize invoices, receipts, and other necessary financial records.
                                 </p>
-                               
+
                             </ImageAccordion>
                         </motion.div>
                     </div>
@@ -240,9 +240,9 @@ export function AboutSection() {
                     {/* Right Column */}
                     <div className='flex flex-col space-y-6'>
 
-                        
-                    <motion.div 
-                            variants={fadeInUp} 
+
+                        <motion.div
+                            variants={fadeInUp}
                             className="transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl"
                             ref={accordionRefs.execProd.ref}
                         >
@@ -267,7 +267,7 @@ export function AboutSection() {
                             </ImageAccordion>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             variants={fadeInUp}
                             className="transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl"
                             ref={accordionRefs.ens.ref}
@@ -285,18 +285,15 @@ export function AboutSection() {
                                 <h3 className="text-xl font-semibold mb-2">Internal Sustainability</h3>
                                 <p className="mb-4">
                                     Support internal team engagement and well-being, implement communication strategies and feedback systems, assist with training and development, and help evaluate and report on staff satisfaction.   </p>
-                                <h3 className="text-xl font-semibold mb-2">CCSM</h3>
+                                <h3 className="text-xl font-semibold mb-2">Marketing</h3>
                                 <p className="mb-4">
                                     Create content briefs and manage TikTok and Instagram for TEDx Telkom University, handle social media and copywriting, ensure task alignment with workflow, and collaborate on short video content creation.  </p>
-                                <h3 className="text-xl font-semibold mb-2">Visual Design</h3>
-                                <p className="mb-4">
-                                     Create content briefs for designs, design content for social media and print, and collaborate with teams to enhance the overall experience.  </p>
                                 <h3 className="text-xl font-semibold mb-2">Documentation</h3>
                                 <p className="mb-4">
-                                Prepare and operate event documentation equipment, ensure SOP compliance, assist with editing, and produce audio-visual content like bumpers, teasers, and after-movies.</p>
+                                    Prepare and operate event documentation equipment, ensure SOP compliance, assist with editing, and produce audio-visual content like bumpers, teasers, and after-movies.</p>
                                 <h3 className="text-xl font-semibold mb-2">Website</h3>
                                 <p className="mb-4">
-                                Develop the website based on the brief, ensure domain, hosting, and tool compatibility, maintain security, and manage website operations.</p>
+                                    Develop the website based on the brief, ensure domain, hosting, and tool compatibility, maintain security, and manage website operations.</p>
                             </ImageAccordion>
                         </motion.div>
                     </div>
@@ -305,24 +302,24 @@ export function AboutSection() {
 
             {/* Animated accent shapes */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-                <svg 
-                    viewBox="0 0 1200 120" 
-                    preserveAspectRatio="none" 
+                <svg
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
                     className="w-full h-12 text-amber-500/10 rotate-180"
-                    style={{transform: `translateY(${scrollY * 0.05}px) rotate(180deg)`}}
+                    style={{ transform: `translateY(${scrollY * 0.05}px) rotate(180deg)` }}
                 >
-                    <path 
-                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
                         className="fill-current"
                     />
                 </svg>
             </div>
 
             {/* Custom styled cursor effect for interactivity */}
-            <div 
+            <div
                 className="fixed w-12 h-12 rounded-full bg-gradient-to-r from-red-400 to-amber-400 opacity-20 pointer-events-none z-50 mix-blend-screen blur-md"
-                style={{ 
-                    left: typeof window !== 'undefined' ? `${mousePosition.x * window.innerWidth}px` : '0px', 
+                style={{
+                    left: typeof window !== 'undefined' ? `${mousePosition.x * window.innerWidth}px` : '0px',
                     top: typeof window !== 'undefined' ? `${mousePosition.y * window.innerHeight}px` : '0px',
                     transform: 'translate(-50%, -50%)'
                 }}
