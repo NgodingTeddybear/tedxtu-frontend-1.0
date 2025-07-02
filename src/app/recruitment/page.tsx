@@ -8,9 +8,11 @@ import { Accordion } from '@radix-ui/react-accordion';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Code, Palette, Megaphone, BarChart } from 'lucide-react';
 import Footer from '@/components/landing/FooterSection';
 import BackToTopButton from '@/components/BackToTopButton';
+
+
 
 const DIVISIONS = [
 
@@ -152,7 +154,11 @@ export default function Recuitment() {
 
                 {/* CTA Buttons */}
                 <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 sm:mt-12 z-10 w-full max-w-md mx-auto px-4'>
-                    <ElementsButton className='w-full sm:w-auto'>Join us</ElementsButton>
+                    <ElementsButton className='w-full sm:w-auto'>
+                        <a href='https://www.instagram.com/tedxtelkomuniversity'>
+                            Join us
+                        </a>
+                    </ElementsButton>
                     <ElementsButton variant={'gold'} className='w-full sm:w-auto'>More info</ElementsButton>
                 </div>
             </div>
@@ -169,13 +175,32 @@ export default function Recuitment() {
                 <h2 className='text-5xl font-black text-center'>
                     Oprec Timeline
                 </h2>
+                <motion.div
+                    initial={{ y: 60, opacity: 0 }}
+                    animate={{
+                        y: [60, 0, -70, 0, 10, 0],
+                        opacity: 1,
+                    }}
+                    transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        repeatType: 'reverse',
+                        ease: 'easeInOut',
+                    }}
+                    className="absolute inset-0 flex items-center justify-center"
+                >
+                    <span className="text-6xl md:text-8xl font-bold text-center text-white-800 drop-shadow-lg">
+                        Coming Soon
+                    </span>
+                </motion.div>
+                               
             </div>
 
             {/* Division */}
             <div className='flex flex-col gap-10 mb-44'>
                 <div>
                     <h2 className='text-5xl font-black text-center'>
-                        Our Division
+                        Our Departement
                     </h2>
                     <p className='text-center text-xl max-w-[800px] mx-auto'>
                         We are looking for the best talents to join our team. We have 5 divisions
