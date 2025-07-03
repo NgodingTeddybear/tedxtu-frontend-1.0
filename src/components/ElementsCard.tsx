@@ -52,7 +52,7 @@ const contentVariants = cva('text-muted-foreground', {
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardVariants> {
+  VariantProps<typeof cardVariants> {
   title: string;
   content: string;
 }
@@ -62,7 +62,7 @@ const ElementsCard = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={cn('min-h-[200px] w-full p-1 rounded-[20px] bg-gradient-to-r from-[#2E2E2E] to-[#8E8E8E]', className)}
+        className={cn('min-h-[200px] w-full p-1 rounded-[20px]', className)}
         {...props}
       >
         <div

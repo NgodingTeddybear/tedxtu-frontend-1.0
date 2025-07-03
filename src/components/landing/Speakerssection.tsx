@@ -55,24 +55,24 @@ export const SpeakersSection = () => {
   // Auto-rotate speakers for slider effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSpeakerIndex((prevIndex) => 
+      setCurrentSpeakerIndex((prevIndex) =>
         (prevIndex + 1) % (speakers.length - visibleSpeakers + 1)
       );
     }, 4000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
   // Animation variants for different elements
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6 }
     }
   };
-  
+
   const floatingAnimation = {
     initial: { y: 0 },
     animate: {
@@ -112,15 +112,15 @@ export const SpeakersSection = () => {
   // Card hover animation
   const cardHoverAnimation = {
     rest: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
-    hover: { 
-      scale: 1.05, 
+    hover: {
+      scale: 1.05,
       boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
       transition: { duration: 0.3 }
     }
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="relative w-full overflow-hidden py-16 bg-[#000000]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -128,9 +128,9 @@ export const SpeakersSection = () => {
     >
       {/* Background */}
       <img
-        /*src="/speakers/vector.png"
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover z-0"*/
+      /*src="/speakers/vector.png"
+      alt="Background"
+      className="absolute inset-0 w-full h-full object-cover z-0"*/
       />
 
       {/* Vector backgrounds with floating animation */}
@@ -169,7 +169,7 @@ export const SpeakersSection = () => {
       ))}
 
       {/* Section Heading with animation */}
-      <motion.h1 
+      <motion.h1
         className="relative z-10 text-white text-4xl md:text-5xl text-center font-black font-cinzel mb-12"
         variants={fadeInUp}
         initial="hidden"
@@ -182,7 +182,7 @@ export const SpeakersSection = () => {
       {/* Speaker Cards - Two display options */}
       <div className="relative z-10">
         {/* Mobile & Small Screens: Horizontal Slider */}
-        <motion.div 
+        <motion.div
           className="md:hidden relative overflow-hidden px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -215,11 +215,11 @@ export const SpeakersSection = () => {
         </motion.div>
 
         {/* Desktop: Grid Layout */}
-        <motion.div 
+        <motion.div
           className="hidden md:grid grid-cols-3 gap-y-10 gap-x-4 px-4 place-items-center"
           variants={{
             hidden: { opacity: 0 },
-            visible: { 
+            visible: {
               opacity: 1,
               transition: {
                 staggerChildren: 0.2
@@ -281,20 +281,29 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
               }}
             />
 
-            {/* Speaker Image (3/4 height) */}
-            <motion.img
-              src={speaker.imageUrl}
-              alt={speaker.name}
-              className="relative z-20 h-95% object-contain"
+            {/* Speaker Image Container with Gradient */}
+            <motion.div
+              className="relative z-10 h-full flex items-end justify-center"
               variants={{
                 rest: { scale: 1 },
                 hover: { scale: 1.08, transition: { duration: 0.4 } }
               }}
-            />
+            >
+              {/* Speaker Image */}
+              <img
+                src={speaker.imageUrl}
+                alt={speaker.name}
+                className="h-full w-auto object-contain"
+              />
+
+              {/* Gradient overlay on speaker image */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none" />
+            </motion.div>
+
           </CardContent>
 
           {/* Speaker Text */}
-          <motion.div 
+          <motion.div
             className="absolute bottom-3 w-full text-center text-white z-20"
             variants={{
               rest: { opacity: 0.9 },
@@ -302,7 +311,7 @@ const SpeakerCard = ({ speaker }: { speaker: Speaker }) => {
             }}
           >
             <p className="font-black text-sm">{speaker.name}</p>
-            <p className="text-[10px]">{speaker.role}</p>
+            <p className="text-[10px] font-[raleway]">{speaker.role}</p>
           </motion.div>
         </Card>
       </motion.div>

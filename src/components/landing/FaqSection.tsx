@@ -199,7 +199,7 @@ const EnhancedAccordionItem = ({ faq, index, isExpanded, setExpanded }: { faq: F
                 className="relative rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] overflow-hidden mb-6"
             >
                 <motion.div
-                    className={`p-[3px] rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] ${gradient}`}
+                    className={`p-[3px] rounded-[30px] sm:rounded-[40px] md:rounded-[48px] lg:rounded-[60px] `}
                     whileHover={{
                         boxShadow: isEven
                             ? "0 0 15px rgba(255, 193, 7, 0.5)"
