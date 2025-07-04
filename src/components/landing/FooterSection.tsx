@@ -68,6 +68,12 @@ export default function Footer() {
                                     Bandung, Indonesia
                                 </p>
                             </div>
+                            <a href="mailto:tedxtelkomuniversity@gmail.com" className="flex items-start gap-3 hover:underline">
+                                <Mail className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                                <p className="text-gray-400 text-sm font-[family-name:var(--font-raleway)]">
+                                    tedxtelkomuniversity@gmail.com
+                                </p>
+                            </a>
                         </div>
                     </div>
 
