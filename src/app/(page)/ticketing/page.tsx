@@ -281,31 +281,8 @@ function TicketingFlow() {
         setError('');
 
         if (step === 'identity') setStep('persona');
-        else if (step === 'persona') submitCheckout();
+        else if (step === 'persona') setStep('payment');
         else if (step === 'consent') submitConsent();
-    };
-
-    const submitCheckout = async () => {
-        const payload = {
-            ...form,
-            tier,
-            price,
-        };
-
-        const res = await fetch('/api/checkout', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-        });
-
-        if (!res.ok) {
-            setError('Something went wrong, please try again.');
-            return;
-        }
-
-        const data = await res.json();
-        setOrderId(data.orderId);
-        setStep('payment');
     };
 
     const submitConsent = async () => {
@@ -333,13 +310,16 @@ function TicketingFlow() {
         setStep('success');
     };
 
-    if (step === 'payment' && orderId) {
+    if (step === 'payment') {
         return (
             <PaymentPage
-                orderId={orderId}
                 tier={tier}
                 price={price}
-                onConfirm={() => setStep('consent')}
+                formData={form}
+                onConfirm={(newOrderId) => {
+                    setOrderId(newOrderId);
+                    setStep('consent');
+                }}
             />
         );
     }

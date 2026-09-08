@@ -4,15 +4,15 @@ import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 import Image from 'next/image';
 import { Upload } from 'lucide-react';
-import { useEffect, useState, ChangeEvent, DragEvent } from 'react';
+import { useEffect, useState, useRef, ChangeEvent, DragEvent } from 'react';
 import StepProgress from './StepProgress';
 import { ticketsData } from '@/components/sections/event/TicketSelection';
 
 type Props = {
-    orderId: string;
     tier: string;
     price: string;
-    onConfirm?: () => void;
+    formData: Record<string, string | string[]>;
+    onConfirm?: (orderId: string) => void;
 };
 
 const formatTime = (seconds: number) => {
@@ -26,7 +26,7 @@ const formatTime = (seconds: number) => {
         .padStart(2, '0')}`;
 };
 
-export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) {
+export default function PaymentPage({ tier, price, formData, onConfirm }: Props) {
     const [timeLeft, setTimeLeft] = useState(7 * 60);
     const selectedTicket = ticketsData.find((t) => t.tier === tier);
 
@@ -40,6 +40,11 @@ export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) 
 
     // State untuk indikasi proses upload (mencegah double click)
     const [uploading, setUploading] = useState<boolean>(false);
+
+    // Referensi agar submit tidak pernah berjalan dua kali dalam satu waktu
+    const submittedRef = useRef<boolean>(false);
+    // Order yang sudah berhasil dibuat, agar retry tidak membuat data baru (idempotent)
+    const [createdOrderId, setCreatedOrderId] = useState<string | null>(null);
 
     // State untuk visual efek drag and drop
     const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -107,8 +112,8 @@ export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) 
     };
 
     const handleConfirmPayment = async () => {
-        // Cegah double click: abaikan jika upload sedang berjalan
-        if (uploading) return;
+        // Cegah double click / submit berulang: abaikan jika sedang berjalan
+        if (uploading || submittedRef.current) return;
 
         let hasError = false;
 
@@ -131,15 +136,43 @@ export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) 
         const file = selectedFile;
         if (!file) return;
 
+        submittedRef.current = true;
         setUploading(true);
 
         try {
+            // 0. Buat order (API beli) HANYA saat submit bukti pembayaran.
+            //    Jika sudah pernah berhasil dibuat (misal retry setelah upload gagal),
+            //    gunakan orderId yang sama agar tidak membuat data ganda.
+            let orderIdToUse = createdOrderId;
+            if (!orderIdToUse) {
+                const checkoutRes = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...formData, tier, price }),
+                });
+
+                const checkoutData = await checkoutRes.json().catch(() => null);
+
+                if (!checkoutRes.ok || !checkoutData?.orderId) {
+                    setFileError(
+                        checkoutData?.error ||
+                            'Gagal membuat pesanan. Silakan coba lagi.',
+                    );
+                    return;
+                }
+
+                orderIdToUse = checkoutData.orderId;
+                setCreatedOrderId(orderIdToUse);
+            }
+
+            if (!orderIdToUse) return;
+
             // 1. Request upload permission (presigned URL) ke Vercel Blob
             const uploadUrlRes = await fetch('/api/payment/upload-url', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    orderId,
+                    orderId: orderIdToUse,
                     fileName: file.name,
                     fileType: file.type,
                     fileSize: file.size,
@@ -177,7 +210,7 @@ export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) 
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    orderId,
+                    orderId: orderIdToUse,
                     proofUrl: blobData.url,
                     paymentName,
                 }),
@@ -194,7 +227,7 @@ export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) 
             }
 
             if (onConfirm) {
-                onConfirm();
+                onConfirm(orderIdToUse);
                 return;
             }
             alert('Payment confirmed and processing!');
@@ -204,6 +237,7 @@ export default function PaymentPage({ orderId, tier, price, onConfirm }: Props) 
             );
         } finally {
             setUploading(false);
+            submittedRef.current = false;
         }
     };
 

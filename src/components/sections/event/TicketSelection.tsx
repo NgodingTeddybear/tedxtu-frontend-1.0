@@ -157,9 +157,9 @@ const TicketSelection = () => {
                                     ))}
                                 </ul>
 
-                                <p className='mt-6 text-center font-raleway text-sm text-white/60'>
+                                {/* <p className='mt-6 text-center font-raleway text-sm text-white/60'>
                                     {remaining} tiket tersisa
-                                </p>
+                                </p> */}
 
                                 <div className='mt-8'>
                                     <a
