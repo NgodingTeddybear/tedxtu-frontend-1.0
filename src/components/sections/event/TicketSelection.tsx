@@ -11,6 +11,7 @@ export interface TicketTier {
     releaseDate: Date;
     endDate: Date | null;
     quantity: number;
+    soldOut?: boolean;
     features: string[];
 }
 
@@ -30,6 +31,7 @@ export const ticketsData: TicketTier[] = [
         releaseDate: new Date('2026-09-04T17:00:00Z'),  // 00:00 WIB 5 Sep
         endDate: new Date('2026-09-12T17:00:00Z'),        // 00:00 WIB 13 Sep (tersedia hingga 12 Sep)
         quantity: 60,
+        soldOut: true,
         features: SHARED_FEATURES,
     },
     {
@@ -118,9 +120,12 @@ const TicketSelection = () => {
                 <div className='mt-10 mx-auto grid max-w-xl gap-8 sm:max-w-4xl lg:max-w-6xl lg:grid-cols-3'>
                     {ticketsData.map((ticket) => {
                         const available = isTicketAvailable(ticket);
-                        const sold = soldCounts[ticket.tier] ?? 0;
+                        const hardSoldOut = ticket.soldOut === true;
+                        const sold = hardSoldOut
+                            ? ticket.quantity
+                            : (soldCounts[ticket.tier] ?? 0);
                         const remaining = Math.max(0, ticket.quantity - sold);
-                        const soldOut = remaining === 0;
+                        const soldOut = hardSoldOut || remaining === 0;
 
                         return (
                             <article
@@ -157,9 +162,15 @@ const TicketSelection = () => {
                                     ))}
                                 </ul>
 
-                                {/* <p className='mt-6 text-center font-raleway text-sm text-white/60'>
-                                    {remaining} tiket tersisa
-                                </p> */}
+                                {/* {hardSoldOut ? (
+                                    <p className='mt-6 text-center font-raleway text-sm font-bold uppercase tracking-[0.2em] text-[#FFB4B4]'>
+                                        Sold Out
+                                    </p>
+                                ) : (
+                                    <p className='mt-6 text-center font-raleway text-sm text-white/60'>
+                                        {remaining} tiket tersisa
+                                    </p>
+                                )} */}
 
                                 <div className='mt-8'>
                                     <a

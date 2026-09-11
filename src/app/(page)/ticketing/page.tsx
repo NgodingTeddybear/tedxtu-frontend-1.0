@@ -8,6 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import PaymentPage from '../../../components/sections/ticketing/paymentPage';
 import PaymentSuccessPage from '../../../components/sections/ticketing/paymentSuccess';
 import StepProgress from '../../../components/sections/ticketing/StepProgress';
+import { ticketsData } from '../../../components/sections/event/TicketSelection';
 
 type FormData = {
     email: string;
@@ -204,6 +205,8 @@ function TicketingFlow() {
     const searchParams = useSearchParams();
     const tier = searchParams.get('tier') ?? 'REGULAR';
     const price = searchParams.get('price') ?? '';
+    const selectedTicket = ticketsData.find((t) => t.tier === tier);
+    const tierHardSoldOut = selectedTicket?.soldOut === true;
 
     const [step, setStep] = useState<Step>('identity');
     const [form, setForm] = useState<FormData>(initial);
@@ -309,6 +312,28 @@ function TicketingFlow() {
 
         setStep('success');
     };
+
+    if (tierHardSoldOut) {
+        return (
+            <>
+                <Navbar />
+
+                <main className='relative flex min-h-screen items-center justify-center overflow-x-hidden bg-black px-6 pt-24 pb-16 text-center text-white'>
+                    <section className='max-w-xl'>
+                        <h1 className='font-westmeath text-4xl uppercase text-white sm:text-5xl'>
+                            Sold Out
+                        </h1>
+                        <p className='mt-4 font-raleway text-lg leading-relaxed text-white/75'>
+                            Tiket {tier} telah habis dan tidak dapat dibeli
+                            lagi. Silakan pilih jenis tiket lainnya.
+                        </p>
+                    </section>
+                </main>
+
+                <Footer />
+            </>
+        );
+    }
 
     if (step === 'payment') {
         return (
