@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Search, Eye, Check, X, ChevronDown, Download, Trash2 } from 'lucide-react';
+import { Search, Eye, Check, X, ChevronDown, Download, Trash2, QrCode as QrIcon } from 'lucide-react';
 
 type Ticket = {
     id: string;
@@ -14,6 +14,7 @@ type Ticket = {
     tier: string;
     paymentName: string | null;
     proofUrl: string | null;
+    qrToken: string | null;
     status: 'PENDING' | 'CONFIRMED' | 'REJECTED';
     scanned: boolean;
     createdAt: string;
@@ -67,6 +68,7 @@ export default function TiketPage() {
     const [tickets, setTickets] = useState<Ticket[]>([]);
     const [loading, setLoading] = useState(true);
     const [preview, setPreview] = useState<string | null>(null);
+    const [qrPreview, setQrPreview] = useState<Ticket | null>(null);
     const [search, setSearch] = useState('');
     const [filterStatus, setFilterStatus] = useState<string>('all');
     const [actingId, setActingId] = useState<string | null>(null);
@@ -200,6 +202,9 @@ export default function TiketPage() {
                                     Proof
                                 </th>
                                 <th className='px-4 py-3 text-left text-xs font-medium text-white/40 uppercase tracking-wider'>
+                                    QR
+                                </th>
+                                <th className='px-4 py-3 text-left text-xs font-medium text-white/40 uppercase tracking-wider'>
                                     Status
                                 </th>
                                 <th className='px-4 py-3 text-left text-xs font-medium text-white/40 uppercase tracking-wider'>
@@ -251,6 +256,21 @@ export default function TiketPage() {
                                                 onClick={() =>
                                                     setPreview(t.proofUrl!)
                                                 }
+                                                className='inline-flex items-center gap-1 text-red-400 hover:text-red-300 text-xs font-medium'
+                                            >
+                                                <Eye className='h-3.5 w-3.5' />
+                                                View
+                                            </button>
+                                        ) : (
+                                            <span className='text-xs text-white/30'>
+                                                -
+                                            </span>
+                                        )}
+                                    </td>
+                                    <td className='px-4 py-3'>
+                                        {t.status === 'CONFIRMED' && t.qrToken ? (
+                                            <button
+                                                onClick={() => setQrPreview(t)}
                                                 className='inline-flex items-center gap-1 text-red-400 hover:text-red-300 text-xs font-medium'
                                             >
                                                 <Eye className='h-3.5 w-3.5' />
@@ -350,6 +370,60 @@ export default function TiketPage() {
                         >
                             <X className='h-5 w-5' />
                         </button>
+                    </div>
+                </div>
+            )}
+
+            {qrPreview && qrPreview.qrToken && (
+                <div
+                    onClick={() => setQrPreview(null)}
+                    className='fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4'
+                >
+                    <div
+                        onClick={(e) => e.stopPropagation()}
+                        className='w-full max-w-sm rounded-2xl border border-white/10 bg-[#121212] p-6 text-center'
+                    >
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center gap-2 text-red-400'>
+                                <QrIcon className='h-5 w-5' />
+                                <h2 className='text-lg font-bold text-white'>
+                                    Ticket QR
+                                </h2>
+                            </div>
+                            <button
+                                onClick={() => setQrPreview(null)}
+                                className='rounded-lg p-1 text-white/60 hover:bg-white/10'
+                            >
+                                <X className='h-5 w-5' />
+                            </button>
+                        </div>
+
+                        <div className='mx-auto mt-5 w-fit rounded-xl bg-white p-3 shadow-2xl'>
+                            <img
+                                src={`/api/qr/${qrPreview.qrToken}`}
+                                alt={`QR ${qrPreview.orderId}`}
+                                className='h-56 w-56'
+                            />
+                        </div>
+
+                        <p className='mt-4 font-mono text-sm text-white'>
+                            {qrPreview.orderId}
+                        </p>
+                        <p className='mt-1 text-sm text-white/60'>
+                            {qrPreview.fullName} — {qrPreview.tier}
+                        </p>
+                        <p className='mt-1 text-xs text-white/40'>
+                            Status: <span className='text-green-400'>CONFIRMED</span>
+                        </p>
+
+                        <a
+                            href={`/api/qr/${qrPreview.qrToken}`}
+                            download={`${qrPreview.orderId}-qr.png`}
+                            className='mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-red-700'
+                        >
+                            <Download className='h-4 w-4' />
+                            Download QR
+                        </a>
                     </div>
                 </div>
             )}
