@@ -4,9 +4,11 @@ import { prisma } from "@/lib/prisma";
 export const runtime = "nodejs";
 
 export async function GET() {
+  // Tiket dihitung "terjual" jika sudah ada bukti pembayaran (proofUrl),
+  // bukan lagi berdasarkan status CONFIRMED.
   const confirmedByTier = await prisma.ticket.groupBy({
     by: ["tier"],
-    where: { status: "CONFIRMED" },
+    where: { proofUrl: { not: null } },
     _count: { tier: true },
   });
 

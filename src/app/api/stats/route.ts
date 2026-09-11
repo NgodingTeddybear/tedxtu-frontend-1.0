@@ -10,9 +10,11 @@ export async function GET() {
       prisma.ticket.count({ where: { status: "REJECTED" } }),
       prisma.ticket.count({ where: { scanned: true } }),
       prisma.ticket.groupBy({ by: ["tier"], _count: { tier: true } }),
+      // Jumlah tiket per tier yang sudah punya bukti pembayaran (proofUrl),
+      // dipakai untuk menghitung sisa tiket (bukan berdasarkan CONFIRMED).
       prisma.ticket.groupBy({
         by: ["tier"],
-        where: { status: "CONFIRMED" },
+        where: { proofUrl: { not: null } },
         _count: { tier: true },
       }),
     ]);
